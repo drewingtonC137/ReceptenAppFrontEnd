@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
     <!-- local sources -->
     <link rel="stylesheet" href="../style/style.css">
 </head>
+
 <body>
     <div class="login-header">
         <a id="login-button" href="login.html">Sign in</a>
@@ -26,5 +28,28 @@
                 <a id="UserInfo-page" href="userInfo.html">User profile</a>
             </div>
         </nav>
+        <div>
+            <h1>User information</h1>
+
+            <form  class="userinput" action="/action_page.php">
+                    <label for="fname">User Name:</label>
+                <input type="text" id="uname" name="uname"><br><br>
+                <label for="lname">Description:</label>
+                <input type="text" id="description" name="description" size="100"><br><br>
+                <label for="lname">City</label>
+                <input type="text" id="city" name="city"><br><br>
+                <label for="lname">Street</label>
+                <input type="text" id="adres1" name="adres1"><br><br>
+                <label for="lname">house number</label>
+                <input type="text" id="adres2" name="adres2"><br><br>
+                <label for="lname">house number addition</label>
+                <input type="text" id="adres3" name="adres3"><br><br>
+                <label for="lname">Zip code</label>
+                <input type="text" id="adres4" name="adres4"><br><br>
+                <input type="submit" value="Submit">
+                
+            </form>
+
+        </div>
     </div>
 </body>
