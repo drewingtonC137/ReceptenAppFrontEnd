@@ -6,17 +6,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../script/signup.js"></script>
     <!-- local sources -->
+    <link rel="stylesheet" href="../style/loginstyle.css">
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-    <div class="login-header">
-        <a id="login-button" href="login.html">Sign in</a>
-    </div>
     <div class="container-fluid">
         <div class="page-header">
             <h1 id="title">Recepten App</h1>
-        </div>
+
         <nav class="navbar navbar-default">
             <div class="topnav">
                 <a id="homepage" href="index.html">Homepage</a>
@@ -26,4 +25,26 @@
             </div>
         </nav>
     </div>
+
+    <div id="signup-form-wrap">
+    <h2>Create account</h2>
+        <form id="signup-form">
+            <p>
+                <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+            </p>
+            <p>
+                <input type="email" id="email" name="email" placeholder="E-mail" required><i class="validation"><span></span><span></span></i>
+            </p>
+            <p>
+                <input type="password" id="password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+            </p>
+            <p>
+                <input type="submit" value="Sign up" id="signup">
+            </p>
+        </form>
+        <div id="login-wrap">
+            <p>Already a member? <a href="login.html">Sign in</a><p>
+        </div><!--create-account-wrap-->
+    </div><!--signup-form-wrap-->
+    <!-- partial -->
 </body>
