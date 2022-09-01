@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- local sources -->
+    <link rel="stylesheet" href="../style/style.css">
+    <script>
+        function ShowAllUsers(){
+            console.log("it Works")
+            var xhr = new XMLHttpRequest();
+            //event always needs anonoeme functio OR function pointer
+            xhr.onreadystatechange = function (){   
+                console.log(this.responseText)   //anonymous function.  
+                if(this.readyState == 4) {
+                    alert("Back from the backend")
+                    let antwoord = this.responseText
+                    let antwoordOBJ = JSON.parse(antwoord);
+                    console.log(antwoordOBJ)   
+                    for (var x =0; x < antwoordOBJ.length; x++){
+                        document.getElementById("go").innerHTML += antwoordOBJ[x].name + "<hr>"
+                    }  
+
+                }       
+            }
+            xhr.open("GET","http://localhost:8082/test1", true) //asynchroon is true, while doing stuff we wont wait for the result
+            xhr.send();
+            
+        }
+        function ShowAllUsers2(){
+            fetch("http://localhost:8082/test1")
+            .then(a => a.json())
+            .then(b => {
+                for (var x =0; x < b.length; x++){
+                        document.getElementById("go2").innerHTML += b[x].cityName + b[x].name +"<hr>"
+                    }  
+            })
+        }
+        function addUser(){
+            console.log(20)
+            let theUser = {};
+            theUser.name = document.getElementById("nameInput").value;
+            theUser.cityName = document.getElementById("cityInput").value;
+            theUserJSON = JSON.stringify(theUser)
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:8082/adduser", true)
+            xhr.setRequestHeader("Content-Type","application/json");
+            xhr.send(theUserJSON);
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="login-header">
+        <a id="login-button" href="login.html">Sign in</a>
+    </div>
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1 id="title">Recepten App</h1>
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="topnav">
+                <a id="homepage" href="index.html">Homepage</a>
+                <a id="inventory-page" href="inventory.html">Inventory</a>
+                <a id="ingredients-page" href="ingredients.html">Ingredients</a>
+                <a id="recipes-page" href="recipes.html">Recipes</a>
+                <a id="UserInfo-page" href="userInfo.html">User profile</a>
+            </div>
+        </nav>
+        <div>
+            <input type="button" value="klik hier" onclick="ShowAllUsers()">
+            <div id="go"></div>
+            <input type="button" value="klik hier" onclick="ShowAllUsers2()">
+            <div id="go2"></div>
+            Name:<input id="nameInput">
+            City:<input id="cityInput">
+            Send: <input type="button" value="send" onclick="addUser()">
+        </div>
+        <div>
+            <h1>User information</h1>
+
+            <form  class="userinput" action="/action_page.php">
+                    <label for="fname">User Name:</label>
+                <input type="text" id="uname" name="uname"><br><br>
+                <label for="lname">Description:</label>
+                <input type="text" id="description" name="description" size="100"><br><br>
+                <label for="lname">City</label>
+                <input type="text" id="city" name="city"><br><br>
+                <label for="lname">Street</label>
+                <input type="text" id="adres1" name="adres1"><br><br>
+                <label for="lname">house number</label>
+                <input type="text" id="adres2" name="adres2"><br><br>
+                <label for="lname">house number addition</label>
+                <input type="text" id="adres3" name="adres3"><br><br>
+                <label for="lname">Zip code</label>
+                <input type="text" id="adres4" name="adres4"><br><br>
+                <input type="submit" value="Submit">
+                
+            </form>
+
+        </div>
+    </div>
+</body>
