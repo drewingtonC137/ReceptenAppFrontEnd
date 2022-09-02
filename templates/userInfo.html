@@ -9,38 +9,45 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- local sources -->
     <link rel="stylesheet" href="../style/style.css">
+    <style>
+        .btn-success{
+            size: 10px 20px;
+            background-color: aquamarine;
+            border: 2px solid red;
+        }
+    </style>
     <script>
-        function ShowAllUsers(){
+        function ShowAllUsers() {
             console.log("it Works")
             var xhr = new XMLHttpRequest();
             //event always needs anonoeme functio OR function pointer
-            xhr.onreadystatechange = function (){   
+            xhr.onreadystatechange = function () {
                 console.log(this.responseText)   //anonymous function.  
-                if(this.readyState == 4) {
+                if (this.readyState == 4) {
                     alert("Back from the backend")
                     let antwoord = this.responseText
                     let antwoordOBJ = JSON.parse(antwoord);
-                    console.log(antwoordOBJ)   
-                    for (var x =0; x < antwoordOBJ.length; x++){
+                    console.log(antwoordOBJ)
+                    for (var x = 0; x < antwoordOBJ.length; x++) {
                         document.getElementById("go").innerHTML += antwoordOBJ[x].name + "<hr>"
-                    }  
+                    }
 
-                }       
+                }
             }
-            xhr.open("GET","http://localhost:8082/test1", true) //asynchroon is true, while doing stuff we wont wait for the result
+            xhr.open("GET", "http://localhost:8082/test1", true) //asynchroon is true, while doing stuff we wont wait for the result
             xhr.send();
-            
+
         }
-        function ShowAllUsers2(){
+        function ShowAllUsers2() {
             fetch("http://localhost:8082/test1")
-            .then(a => a.json())
-            .then(b => {
-                for (var x =0; x < b.length; x++){
-                        document.getElementById("go2").innerHTML += b[x].cityName + b[x].name +"<hr>"
-                    }  
-            })
+                .then(a => a.json())
+                .then(b => {
+                    for (var x = 0; x < b.length; x++) {
+                        document.getElementById("go2").innerHTML += b[x].cityName + b[x].name + "<hr>"
+                    }
+                })
         }
-        function addUser(){
+        function addUser() {
             console.log(20)
             let theUser = {};
             theUser.name = document.getElementById("nameInput").value;
@@ -48,7 +55,7 @@
             theUserJSON = JSON.stringify(theUser)
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "http://localhost:8082/adduser", true)
-            xhr.setRequestHeader("Content-Type","application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(theUserJSON);
 
         }
@@ -74,34 +81,51 @@
             </div>
         </nav>
         <div>
-            <input type="button" value="klik hier" onclick="ShowAllUsers()">
-            <div id="go"></div>
-            <input type="button" value="klik hier" onclick="ShowAllUsers2()">
-            <div id="go2"></div>
-            Name:<input id="nameInput">
-            City:<input id="cityInput">
-            Send: <input type="button" value="send" onclick="addUser()">
+
         </div>
         <div>
             <h1>User information</h1>
 
-            <form  class="userinput" action="/action_page.php">
-                    <label for="fname">User Name:</label>
-                <input type="text" id="uname" name="uname"><br><br>
-                <label for="lname">Description:</label>
-                <input type="text" id="description" name="description" size="100"><br><br>
-                <label for="lname">City</label>
-                <input type="text" id="city" name="city"><br><br>
-                <label for="lname">Street</label>
-                <input type="text" id="adres1" name="adres1"><br><br>
-                <label for="lname">house number</label>
-                <input type="text" id="adres2" name="adres2"><br><br>
-                <label for="lname">house number addition</label>
-                <input type="text" id="adres3" name="adres3"><br><br>
-                <label for="lname">Zip code</label>
-                <input type="text" id="adres4" name="adres4"><br><br>
-                <input type="submit" value="Submit">
-                
+            <form class="userinput" action="/action_page.php">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="lname">User:</label>
+                            <input type="text" id="uname" name="uname" class="form-control"><br><br>
+                            <label for="lname">Description:</label>
+                            <input type="text" id="description" name="description" class="form-control"><br><br>
+                            <label for="lname">City</label>
+                            <input type="text" id="city" name="city" class="form-control"><br><br>
+                            <label for="lname">Street</label>
+                            <input type="text" id="adres1" name="adres1" class="form-control"><br><br>
+                            <label for="lname">house number</label>
+                            <input type="text" id="adres2" name="adres2" class="form-control"><br><br>
+                            <label for="lname">house number addition</label>
+                            <input type="text" id="adres3" name="adres3" class="form-control"><br><br>
+                            <label for="lname">Zip code</label>
+                            <input type="text" id="adres4" name="adres4" class="form-control"><br><br>
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="button" value="klik hier" onclick="ShowAllUsers()">
+                            <div id="go"></div>
+                            <input type="button" class="btn btn-success" value="klik hier" onclick="ShowAllUsers2()">
+                            <div id="go2"></div>
+                            Name:<input id="nameInput" class="form-control"> <br>
+                            City:<input id="cityInput" class="form-control"> <br>
+                            Send: <input type="button" value="send" onclick="addUser()">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
             </form>
 
         </div>
