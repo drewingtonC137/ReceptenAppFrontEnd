@@ -10,11 +10,11 @@
     <!-- local sources -->
     <link rel="stylesheet" href="../style/style.css">
     <style>
-        .btn-success{
+        /* .btn-success{
             size: 10px 20px;
             background-color: aquamarine;
             border: 2px solid red;
-        }
+        } */
     </style>
     <script>
         function ShowAllUsers() {
@@ -50,13 +50,21 @@
         function addUser() {
             console.log(20)
             let theUser = {};
-            theUser.name = document.getElementById("nameInput").value;
-            theUser.cityName = document.getElementById("cityInput").value;
+            theUser.name = document.getElementById("uname").value;
+            theUser.Description = document.getElementById("description").value;
+            theUser.cityName = document.getElementById("city").value;
+            theUser.streetName = document.getElementById("adres1").value;
+            theUser.houseNumber = document.getElementById("adres2").value;
+            theUser.houseNumberAddition = document.getElementById("adres3").value;
+            theUser.zipCode = document.getElementById("adres4").value;
+            
             theUserJSON = JSON.stringify(theUser)
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "http://localhost:8082/adduser", true)
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(theUserJSON);
+            alert("Info Saved");
+            console.log("User saved")
 
         }
 
@@ -104,7 +112,7 @@
                             <input type="text" id="adres3" name="adres3" class="form-control"><br><br>
                             <label for="lname">Zip code</label>
                             <input type="text" id="adres4" name="adres4" class="form-control"><br><br>
-                            <input type="submit" value="Submit">
+                            <input type="button" class="btn btn-success" value="Submit" onclick="addUser()">
                         </div>
                         <div class="col-sm-3">
 
