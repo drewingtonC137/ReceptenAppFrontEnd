@@ -27,7 +27,8 @@ signupButton.addEventListener("click", (e) => {
         },
         body: JSON.stringify(accountObj)
     })
-    
+    //window.location.href = "http://127.0.0.1:5500/templates/userInfo.html"; //= redirect to user info input page maar maakt dan geen account meer aan???
+
     // Redirect to profile page. Stay logged in as the created user. TODO doesnt work yet
 
     // window.location.href = "userInfo.html";
