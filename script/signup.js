@@ -40,5 +40,4 @@ signupButton.addEventListener("click", (e) => {
             console.log("Signed up!");
         }
     })
-
 })
