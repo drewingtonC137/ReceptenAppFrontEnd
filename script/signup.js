@@ -2,9 +2,6 @@
     Creates an account and saves the values in a Account SQL database.
     TODO: Error message when trying to create an account with an existing username or email inside the Account database.
 */
-
-let url="http://localhost:8082";
-
 const signupButton = document.getElementById("signup");
 
 signupButton.addEventListener("click", (e) => {
@@ -18,7 +15,7 @@ signupButton.addEventListener("click", (e) => {
     accountObj.email = email;
     accountObj.passWord = password;
 
-    console.log("logging in!!!");
+    console.log("Signing up...");
 
     fetch(url + "/signup", {
         method: 'POST',
@@ -27,9 +24,20 @@ signupButton.addEventListener("click", (e) => {
         },
         body: JSON.stringify(accountObj)
     })
-    //window.location.href = "http://127.0.0.1:5500/templates/userInfo.html"; //= redirect to user info input page maar maakt dan geen account meer aan???
-
-    // Redirect to profile page. Stay logged in as the created user. TODO doesnt work yet
-
-    // window.location.href = "userInfo.html";
+    .then(id => {
+        return id.text();
+    })
+    .then(number => {
+        localStorage.setItem('accountId', number);
+        return number;
+    })
+    .then(number => {
+        if(number == -1){
+            alert("Account is already taken! Try again...")
+            location.reload()
+        } else{
+            window.location.replace("userInfo.html");
+            console.log("Signed up!");
+        }
+    })
 })

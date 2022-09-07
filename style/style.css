@@ -22,8 +22,14 @@ body {
     color:#000000;
 }
 
-#login-button {
+#login-button, #logout-button, #profile-button {
     color:#000000;
+    font-weight: bold;
+    padding:5px;
+}
+
+#logout-button, #profile-button {
+    display: none;
 }
 
 #title {

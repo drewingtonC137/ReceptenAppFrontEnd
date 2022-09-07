@@ -1,6 +1,3 @@
-let url = "http://localhost:8082";
-
-
 window.onload = function () {
    // ophalen van ingredient data
    fetch(url + "/returnIngredients")
