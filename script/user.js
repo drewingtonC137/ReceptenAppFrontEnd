@@ -48,6 +48,16 @@ function addUser() {
     console.log("User saved")
 
 }
-function showUserInfo(){
+window.onload = function (){
+    var id = 11;
+    fetch("http://localhost:8082/getUser/" + id)
+        .then(a => a.json())
+        .then(b => {
+                console.log(b);
+                document.getElementById("go3").innerHTML +=b.name  + b.cityName +  + "<hr>"
+            
+        })
+        
+    
 
 }
