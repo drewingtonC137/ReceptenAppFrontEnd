@@ -25,6 +25,21 @@
             body: JSON.stringify(receptObj)
         })
     }
+    function idOpzoeken(){
+        console.log("idOpzoeken");
+        fetch(url+"/zoekenAccount/Jan123")
+            .then(res=>res.text())
+            .then(u => slaOp(u))
+        //  Coockie  (client computer)     Session (server computer)
+        //  localStorage                   sessionStorage
+    }
+    function slaOp(UserId){
+        localStorage.setItem("ditmagikzelfverzinnensleutel", UserId);
+    }
+    function nieuweAanvraag(){
+        let getalid = localStorage.getItem("ditmagikzelfverzinnensleutel");
+        alert(getalid);
+    }
 </script>
 
 
@@ -36,3 +51,8 @@
 <input id="naameten">
 <input id="omschrijvingeten">
 <button onclick="opslaanEten()">opslaan</button>
+<hr><hr>
+<h1>LocalStorage</h1>
+<button onclick="idOpzoeken()">opslaan</button>
+<hr><hr>
+<button onclick="nieuweAanvraag()">opslaan</button>
