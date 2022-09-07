@@ -8,13 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- local sources -->
+    <script src="../script/globalVariables.js"></script>
     <script src="../script/recipe.js"></script>
+    <script src="../script/profile.js"></script>
     <link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body>
-    <div class="login-header">
+    <div id="login-header">
         <a id="login-button" href="login.html">Sign in</a>
+        <a id="profile-button" href="userInfo.html">Profile</a>
+        <a id="logout-button" href="../index.html">Sign out</a>
     </div>
     <div class="container-fluid">
         <div class="page-header">
@@ -22,7 +26,7 @@
         </div>
         <nav class="navbar navbar-default">
             <div class="topnav">
-                <a id="homepage" href="index.html">Homepage</a>
+                <a id="homepage" href="../index.html">Homepage</a>
                 <a id="inventory-page" href="inventory.html">Inventory</a>
                 <a id="ingredients-page" href="ingredients.html">Ingredients</a>
                 <a id="recipes-page" href="recipes.html">Recipes</a>
@@ -95,5 +99,4 @@
             </div>
         </div>
     </div>
-
 </body>

@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="../script/signup.js"></script>
     <!-- local sources -->
+    <script src="../script/globalVariables.js"></script>
     <link rel="stylesheet" href="../style/loginstyle.css">
     <link rel="stylesheet" href="../style/style.css">
 </head>
@@ -18,7 +18,7 @@
 
         <nav class="navbar navbar-default">
             <div class="topnav">
-                <a id="homepage" href="index.html">Homepage</a>
+                <a id="homepage" href="../index.html">Homepage</a>
                 <a id="inventory-page" href="inventory.html">Inventory</a>
                 <a id="ingredients-page" href="ingredients.html">Ingredients</a>
                 <a id="recipes-page" href="recipes.html">Recipes</a>
@@ -28,23 +28,22 @@
 
     <div id="signup-form-wrap">
     <h2>Create account</h2>
-        <form id="signup-form">
-            <p>
-                <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
-            </p>
-            <p>
-                <input type="email" id="email" name="email" placeholder="E-mail" required><i class="validation"><span></span><span></span></i>
-            </p>
-            <p>
-                <input type="password" id="password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
-            </p>
-            <p>
-                <input type="submit" value="Sign up" id="signup">
-            </p>
-        </form>
+        <p>
+            <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+        </p>
+        <p>
+            <input type="email" id="email" name="email" placeholder="E-mail" required><i class="validation"><span></span><span></span></i>
+        </p>
+        <p>
+            <input type="password" id="password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+        </p>
+        <p>
+            <input type="submit" id="signup" value="Sign up">
+        </p>
         <div id="login-wrap">
             <p>Already a member? <a href="login.html">Sign in</a><p>
         </div><!--create-account-wrap-->
     </div><!--signup-form-wrap-->
     <!-- partial -->
 </body>
+<script src="../script/signup.js"></script>

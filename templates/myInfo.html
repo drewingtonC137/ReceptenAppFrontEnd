@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../script/myInfo.js"></script>
     <!-- local sources -->
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-    <div class="login-header">
+    <div id="login-header">
         <a id="login-button" href="login.html">Sign in</a>
     </div>
     <div class="container-fluid">
@@ -26,5 +27,9 @@
                 <a id="user-page" href="userInfo.html">User</a>
             </div>
         </nav>
+        <div>
+            <input type="button" class="btn btn-success" value="Nieuwe knop" onclick="showUserInfo()">
+                            <div id="go3"></div>
+        </div>
     </div>
 </body>
