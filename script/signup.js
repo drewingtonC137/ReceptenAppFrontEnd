@@ -4,30 +4,31 @@
 */
 
 let url="http://localhost:8082";
-    
-window.onload=function(){
-    const signupForm = document.getElementById("signup-form");
-    const signupButton = document.getElementById("signup");
 
-    signupButton.addEventListener("click", (e) => {
-        const username = signupForm.username.value;
-        const email = signupForm.email.value;
-        const password = signupForm.password.value;
+const signupButton = document.getElementById("signup");
 
-        let accountObj = {};
-        accountObj.userName = username;
-        accountObj.email = email;
-        accountObj.passWord = password;
+signupButton.addEventListener("click", (e) => {
+    // Save account in database
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
 
-        fetch(url + "/signup", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(accountObj)
-        })
-        
-        alert("Account created.")
+    let accountObj = {};
+    accountObj.userName = username;
+    accountObj.email = email;
+    accountObj.passWord = password;
 
+    console.log("logging in!!!");
+
+    fetch(url + "/signup", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(accountObj)
     })
-}
+    
+    // Redirect to profile page. Stay logged in as the created user. TODO doesnt work yet
+
+    // window.location.href = "userInfo.html";
+})
