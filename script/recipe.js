@@ -20,17 +20,18 @@ window.onload = function () {
          });
       })
 
+
    // wegschrijven van de recept data naar de database recept
-   const recipeForm = document.getElementById("recipe-form");
    const submitRecipe = document.getElementById("submit-recipe");
 
    submitRecipe.addEventListener("click", (e) => {
       let recipeObj = {};
-      const recipeName = recipeForm.recipeName.value;
-      const portions = recipeForm.portions.value;
-      const cookingTime = recipeForm.cookingTime.value;
-      const kitchenAppliance = recipeForm.kitchenAppliance.value;
-      const instructions = recipeForm.instructions.value;
+      const recipeName = document.getElementById("recipeName").value;
+      const portions = document.getElementById("portions").value;
+      const cookingTime = document.getElementById("cookingTime").value;
+      const kitchenAppliance = document.getElementById("kitchenAppliance").value;
+      const instructions = document.getElementById("instructions").value;
+
 
       recipeObj.name = recipeName;
       recipeObj.totalPortions = portions;
@@ -45,24 +46,57 @@ window.onload = function () {
          },
          body: JSON.stringify(recipeObj)
       })
+         .then(res => res.text())
+         .then(u => slaReceptIdOp(u))
+         .then(d => {
+            setIngredient();
+            alert("Recept gemaakt");
+         })
 
-      alert("Recept gemaakt")
-      setIngredient()
    })
 }
+
+// het opslaan van het id van het net aangemaakte recept in localStorage
+function slaReceptIdOp(receptId) {
+   const recipeId = receptId;
+}
+
+
+// het opslaan van de id's van de ingredienten van het recept in localStorage
+function slaIngredientIdOp(ingredientIdArray) {
+   localStorage.setItem("ingredienId", ingredientIdArray);
+}
+
 
 // ingredienten naar database toe schrijven
 // backend code checked of het ingredient niet al bestaat in database
 function setIngredient() {
-   const ingredientForm = document.getElementById("ingredient-form");
 
-   let ingredientObj = {};
-   const name1 = document.getElementById("ingredientName1").value;
-   console.log(name1);
+   let name = []
+   let ingredientArray = [];
+   for (let i = 1; i < 8; i++) {
+      let ingredientObj = {};
+      name[i] = document.getElementById("ingredientName" + [i]).value;
+      if (name[i] == "") {
+         break;
+      } else {
+         ingredientObj.name = name[i]
+         // console.log(name[i]);
 
-   ingredientObj.ingredient_name = name1;
-
-   window.location.hrf = url + "/setIngredient/" + name1
+         fetch(url + "/setIngredient/" + name[i], {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json;charset=utf8'
+            },
+            body: JSON.stringify(ingredientObj)
+         })
+            .then(res => res.text())
+            .then(u => {
+               ingredientArray.push(u)
+            })
+      }
+   }
+   return ingredientArray;
 }
 
 
