@@ -14,7 +14,7 @@ body {
       align-items: center;
 }
 
-.login-header {
+#login-header {
     position:absolute;
     top:0;
     right:0;
