@@ -8,6 +8,9 @@ function logInStatus() {
 
     if(userIdSession==null || userIdSession==-1){
         console.log("You are not logged in!")
+        document.getElementById("inventory-page").style.display = 'none';
+        document.getElementById("ingredients-page").style.display = 'none';
+        document.getElementById("recipes-page").style.display = 'none';
         return;
     } else{
         console.log("You are logged in!")
