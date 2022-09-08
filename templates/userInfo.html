@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../script/user.js"></script>
     <!-- local sources -->
     <script src="../script/globalVariables.js"></script>
     <script src="../script/profile.js"></script>
@@ -19,57 +20,6 @@
         } */
     </style>
     <script>
-        function ShowAllUsers() {
-            console.log("it Works")
-            var xhr = new XMLHttpRequest();
-            //event always needs anonoeme functio OR function pointer
-            xhr.onreadystatechange = function () {
-                console.log(this.responseText)   //anonymous function.  
-                if (this.readyState == 4) {
-                    alert("Back from the backend")
-                    let antwoord = this.responseText
-                    let antwoordOBJ = JSON.parse(antwoord);
-                    console.log(antwoordOBJ)
-                    for (var x = 0; x < antwoordOBJ.length; x++) {
-                        document.getElementById("go").innerHTML += antwoordOBJ[x].name + "<hr>"
-                    }
-
-                }
-            }
-            xhr.open("GET", "http://localhost:8082/test1", true) //asynchroon is true, while doing stuff we wont wait for the result
-            xhr.send();
-
-        }
-        function ShowAllUsers2() {
-            fetch("http://localhost:8082/test1")
-                .then(a => a.json())
-                .then(b => {
-                    for (var x = 0; x < b.length; x++) {
-                        document.getElementById("go2").innerHTML += b[x].cityName + b[x].name + "<hr>"
-                    }
-                })
-        }
-        function addUser() {
-            console.log(20)
-            let theUser = {};
-            theUser.name = document.getElementById("uname").value;
-            theUser.Description = document.getElementById("description").value;
-            theUser.cityName = document.getElementById("city").value;
-            theUser.streetName = document.getElementById("adres1").value;
-            theUser.houseNumber = document.getElementById("adres2").value;
-            theUser.houseNumberAddition = document.getElementById("adres3").value;
-            theUser.zipCode = document.getElementById("adres4").value;
-            
-            theUserJSON = JSON.stringify(theUser)
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost:8082/adduser", true)
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(theUserJSON);
-            alert("Info Saved");
-            console.log("User saved")
-
-        }
-
     </script>
 </head>
 
@@ -95,12 +45,16 @@
 
         </div>
         <div>
-            <h1>User information</h1>
+            
 
             <form class="userinput" action="/action_page.php">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
+                            
+                        </div>
+                        <div class="col-sm-3">
+                            <h1>User information</h1>
                             <label for="lname">User:</label>
                             <input type="text" id="uname" name="uname" class="form-control"><br><br>
                             <label for="lname">Description:</label>
@@ -118,16 +72,15 @@
                             <input type="button" class="btn btn-success" value="Submit" onclick="addUser()">
                         </div>
                         <div class="col-sm-3">
-
-                        </div>
-                        <div class="col-sm-3">
                             <input type="button" value="klik hier" onclick="ShowAllUsers()">
                             <div id="go"></div>
                             <input type="button" class="btn btn-success" value="klik hier" onclick="ShowAllUsers2()">
                             <div id="go2"></div>
+                            <input type="button" class="btn btn-success" value="Nieuwe knop" onclick="showUserInfo()">
+                            <div id="go3"></div>
                             Name:<input id="nameInput" class="form-control"> <br>
                             City:<input id="cityInput" class="form-control"> <br>
-                            Send: <input type="button" value="send" onclick="addUser()">
+                            Send: <input type="button" value="send" onclick="">
                         </div>
                     </div>
                 </div>
