@@ -1,5 +1,3 @@
-let url="http://localhost:8082";
-
 const loginButton = document.getElementById("login");
 
 loginButton.addEventListener("click", (e) => {
@@ -11,15 +9,20 @@ loginButton.addEventListener("click", (e) => {
     accountObj.passWord = password;
     let accountObjJSON = JSON.stringify(accountObj);
 
-    let loggedInAccount = fetch(url + "/login", {
+    fetch(url + "/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: accountObjJSON
-    });
-
-    console.log(loggedInAccount);
-    // Redirect to profile page. Stay logged in as the created user.
-    window.location.href = "userInfo.html";
+    })
+    .then(id => {
+        return id.text();
+    })
+    .then(number => {
+        localStorage.setItem('accountId', number);
+    })
+    .then(r => {
+        window.location.replace("userInfo.html");
+    })
 })
