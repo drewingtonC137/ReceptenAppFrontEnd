@@ -14,12 +14,12 @@
 <body>
     <div id="login-header">
         <a id="login-button" href="login.html">Sign in</a>
-        <a id="profile-button" href="userInfo.html">Profile</a>
+        <a id="profile-button" href="myInfo.html">Profile</a>
         <a id="logout-button" href="../index.html">Sign out</a>
     </div>
     <div class="container-fluid">
         <div class="page-header">
-            <h1 id="title">Recepten App</h1>
+            <h1 id="title">Voorraad</h1>
         </div>
         <nav class="navbar navbar-default">
             <div class="topnav">
@@ -30,4 +30,10 @@
             </div>
         </nav>
     </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10" id="serverResponse"></div>
+        <div class="col-sm-1"></div>
+    </div>
 </body>
+<script src="../script/retrieveStock.js"></script>
