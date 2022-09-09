@@ -64,6 +64,7 @@ console.log(url);
 
 submitButton.addEventListener("click",(e)=>{ 
     var id = localStorage.getItem("accountId");
+
     let Description = document.getElementById("description").value ;
     let Name = document.getElementById("uname").value ;
     let City = document.getElementById("city").value ;
@@ -71,22 +72,28 @@ submitButton.addEventListener("click",(e)=>{
     let HouseNumber = document.getElementById("adres2").value ;
     let HouseNumberAddition = document.getElementById("adres3").value ;
     let ZipCode = document.getElementById("adres4").value ;
+
     let UserJson = {}; 
     UserJson.name = Name;
     UserJson.description = Description;
-    UserJson.city_name = City;
-    UserJson.street_name = StreetName;
-    UserJson.house_number = HouseNumber;
-    UserJson.house_number_addition = HouseNumberAddition;
-    UserJson.zip_code = ZipCode;
+    UserJson.cityName = City;
+    UserJson.streetName = StreetName;
+    UserJson.houseNumber = HouseNumber;
+    UserJson.houseNumberAddition = HouseNumberAddition;
+    UserJson.zipCode = ZipCode;
     let UserJsonStringify = JSON.stringify(UserJson);
 
+    console.log("Updating user credentials...");
+
     fetch(url + "/updateUser/"+ id , {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: UserJsonStringify
+    })
+    .then(a => {
+        window.location.replace("myInfo.html");
     })
         
 })
