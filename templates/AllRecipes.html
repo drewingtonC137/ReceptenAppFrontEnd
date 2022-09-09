@@ -6,13 +6,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="../script/myInfo.js"></script>
+    <script src="../script/user.js"></script>
     <!-- local sources -->
+    <script src="../script/allRecipes.js"></script>
+ 
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
     <div id="login-header">
-        <a id="login-button" href="login.html">Sign in</a>
+        <a id="login-button" href="templates/login.html">Sign in</a>
+        <a id="profile-button" href="templates/userInfo.html">Profile</na>
+        <a id="logout-button" href="index.html">Sign out</a>
     </div>
     <div class="container-fluid">
         <div class="page-header">
@@ -21,24 +25,18 @@
         <nav class="navbar navbar-default">
             <div class="topnav">
                 <a id="homepage" href="index.html">Homepage</a>
-                <a id="inventory-page" href="inventory.html">Inventory</a>
-                <a id="ingredients-page" href="ingredients.html">Ingredients</a>
-                <a id="recipes-page" href="recipes.html">Recipes</a>
-                <a id="user-page" href="userInfo.html">User</a>
+                <a id="inventory-page" href="templates/inventory.html">Inventory</a>
+                <a id="ingredients-page" href="templates/ingredients.html">Ingredients</a>
+                <a id="recipes-page" href="templates/recipes.html">Recipes</a>
+               
             </div>
         </nav>
         <div>
-            <input type="button" class="btn btn-success" value="Show my info" onclick="showUserInfo()">
-                <div>
-                    <hr>
-                    <p id="go3">Name: </p>
-                    <p id="go4">Description: </p>
-                    <p id="go5">City: </p>
-                    <p id="go6">Street name: </p>
-                    <p id="go7">House number: </p>
-                    <p id="go8">Zipcode: </p>
-                </div>
-                            
+            <!-- <button id="GetRecipes" onclick="getRecipes()">Show All Recipes</button> -->
+        </div>
+        
+        <div id="go10">  
+            
         </div>
     </div>
 </body>
