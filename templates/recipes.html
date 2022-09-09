@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- local sources -->
     <script src="../script/globalVariables.js"></script>
-    <script src="../script/recipe.js"></script>
+
     <script src="../script/profile.js"></script>
     <link rel="stylesheet" href="../style/style.css">
 </head>
@@ -33,70 +33,15 @@
             </div>
         </nav>
         <div>
-            <!-- <form id="recipe-form"> -->
             <label for="recipeName">Recept:</label><input type="text" id="recipeName"><br>
             <label for="portions">Portions:</label><input type="text" id="portions"><br>
             <label for="cookingTime">Bereidingstijd:</label><input type="text" id="cookingTime"><br>
             <label for="kitchenApplience">Benodigdheden:</label><input type="text" id="kitchenAppliance"><br>
             <label for="instructions">Instructies:</label><br><textarea id="instructions" rows="20"
                 cols="100"></textarea><br>
-            <input type="submit" value="Sla recept op" id="submit-recipe">
-            <!-- </form> -->
-            <div class="ingredients">
-                <div class="row">
-                    <input type="hidden" name="count" value="1" />
-                    <div class="control-group" id="fields">
-                        <label class="control-label" for="field1">Ingredienten:</label>
-                        <div class="controls" id="profs">
-                            <!-- <form class="ingredient-form"> -->
-                            <div id="field">
-                                <input type="text" id="hoeveelheid1" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid1" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName1" name="prof1" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                                <input type="text" id="hoeveelheid2" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid2" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName2" name="prof2" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                                <input type="text" id="hoeveelheid3" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid3" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName3" name="prof3" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                                <input type="text" id="hoeveelheid4" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid4" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName4" name="prof4" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                                <input type="text" id="hoeveelheid5" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid5" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName5" name="prof5" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                                <input type="text" id="hoeveelheid6" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid6" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName6" name="prof6" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                                <input type="text" id="hoeveelheid7" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid7" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName7" name="prof7" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                                <input type="text" id="hoeveelheid8" placeholder="hoeveelheid">
-                                <input type="text" id="eenheid8" placeholder="eenheid">
-                                <input autocomplete="off" class="input" id="ingredientName8" name="prof8" type="text"
-                                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                                <datalist id="ingredientArray"></datalist><br>
-                            </div>
-                            <!-- </form> -->
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <input type="submit" value="Voeg ingredienten toe" id="submitRecipe">
         </div>
     </div>
 </body>
+
+<script src="../script/recipe.js"></script>
