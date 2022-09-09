@@ -16,10 +16,10 @@ window.onload = function(){
                     console.log(b);
                     document.getElementById("go3").innerHTML += b.name + "<hr>"
                     document.getElementById("go4").innerHTML += b.instructions + "<hr>"
-                    document.getElementById("go5").innerHTML += b.cookingTime + "<hr>"
-                    document.getElementById("go6").innerHTML += b.totalPortions + "<hr>"
+                    document.getElementById("go5").innerHTML += b.cookingTime + " Minutes" + "<hr>"
+                    document.getElementById("go6").innerHTML += b.totalPortions + " People" + "<hr>" 
                   
             })
-            console.log("account id =" + id);
+            
             })        
     }
