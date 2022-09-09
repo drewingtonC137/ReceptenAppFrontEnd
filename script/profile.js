@@ -1,6 +1,5 @@
 logInStatus();
 
-
 // Check if you are logged into an account.
 function logInStatus() {
     var userIdSession = localStorage.getItem("accountId");
@@ -8,6 +7,9 @@ function logInStatus() {
 
     if(userIdSession==null || userIdSession==-1){
         console.log("You are not logged in!")
+        document.getElementById("inventory-page").style.display = 'none';
+        document.getElementById("ingredients-page").style.display = 'none';
+        document.getElementById("recipes-page").style.display = 'none';
         return;
     } else{
         console.log("You are logged in!")
@@ -22,7 +24,6 @@ function logInStatus() {
         };
     }
 }
-
 
 // Remember that you are logged in for the session on the given account
 function loggedIn(id) { 

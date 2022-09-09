@@ -21,8 +21,14 @@ loginButton.addEventListener("click", (e) => {
     })
     .then(number => {
         localStorage.setItem('accountId', number);
+        return number;
     })
-    .then(r => {
-        window.location.replace("userInfo.html");
+    .then(id => {
+        if(id==null || id==-1){
+            alert("Username or password invalid!");
+            location.reload();
+        } else{
+            window.location.replace("userInfo.html");
+        }
     })
 })
