@@ -28,7 +28,7 @@ loginButton.addEventListener("click", (e) => {
             alert("Username or password invalid!");
             location.reload();
         } else{
-            window.location.replace("userInfo.html");
+            window.location.replace("../index.html");
         }
     })
 })

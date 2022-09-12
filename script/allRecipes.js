@@ -1,5 +1,4 @@
-let url = "http://localhost:8082/"
-let endpoint = "findAllRecipes"
+let endpoint = "/findAllRecipes"
 window.onload = function() {
     fetch(url+endpoint)
         .then(a => a.json())

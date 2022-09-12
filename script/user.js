@@ -65,13 +65,18 @@ console.log(url);
 submitButton.addEventListener("click",(e)=>{ 
     var id = localStorage.getItem("accountId");
 
-    let Description = document.getElementById("description").value ;
-    let Name = document.getElementById("uname").value ;
-    let City = document.getElementById("city").value ;
-    let StreetName = document.getElementById("adres1").value ;
-    let HouseNumber = document.getElementById("adres2").value ;
-    let HouseNumberAddition = document.getElementById("adres3").value ;
-    let ZipCode = document.getElementById("adres4").value ;
+    let Description = document.getElementById("description").value;
+    let Name = document.getElementById("uname").value;
+    let City = document.getElementById("city").value;
+    let StreetName = document.getElementById("adres1").value;
+    let HouseNumber = document.getElementById("adres2").value;
+    HouseNumber = parseInt(HouseNumber);
+    if(!Number.isInteger(HouseNumber)){
+        alert("Fill in a correct housenumber!");
+        return;
+    }
+    let HouseNumberAddition = document.getElementById("adres3").value;
+    let ZipCode = document.getElementById("adres4").value;
 
     let UserJson = {}; 
     UserJson.name = Name;
