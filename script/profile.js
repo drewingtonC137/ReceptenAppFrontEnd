@@ -1,11 +1,9 @@
-logInStatus();
+var accountId = localStorage.getItem("accountId");
+logInStatus(accountId);
 
 // Check if you are logged into an account.
-function logInStatus() {
-    var userIdSession = localStorage.getItem("accountId");
-    console.log(userIdSession);
-
-    if(userIdSession==null || userIdSession==-1){
+function logInStatus(accountIdSession) {
+    if(accountIdSession==null || accountIdSession==-1){
         console.log("You are not logged in!")
         document.getElementById("inventory-page").style.display = 'none';
         document.getElementById("ingredients-page").style.display = 'none';
@@ -27,3 +25,18 @@ function logInStatus() {
         };
     }
 }
+
+// Delete account if the logged in user wants to delete it's account.
+function deleteAccount() {
+    fetch(url + '/deleteAccount/' + accountId , {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+    })
+    .then(a => {
+        alert("Account has been deleted!");
+        localStorage.removeItem("accountId");
+        window.location.replace("../index.html");
+    })
+} 
