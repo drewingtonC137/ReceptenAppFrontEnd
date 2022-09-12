@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,14 +8,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- local sources -->
-    <script src="../script/globalVariables.js"></script>
+    
     <script src="../script/profile.js"></script>
     <link rel="stylesheet" href="../style/style.css">
 </head>
+
 <body>
     <div id="login-header">
         <a id="login-button" href="login.html">Sign in</a>
-        <a id="profile-button" href="userInfo.html">Profile</a>
+        <a id="profile-button" href="myInfo.html">Profile</a>
         <a id="logout-button" href="../index.html">Sign out</a>
     </div>
     <div class="container-fluid">
@@ -29,5 +31,22 @@
                 <a id="recipes-page" href="recipes.html">Recipes</a>
             </div>
         </nav>
+        <div>
+            <table id="recipe">
+                <tr>Receptnaam: </tr><br>
+
+                <tr>Porties: </tr>
+            </table>
+
+            <input type="text" id="hoeveelheid" placeholder="hoeveelheid">
+            <input type="text" id="eenheid" placeholder="eenheid">
+            <input autocomplete="off" class="input" id="ingredientName" name="prof1" type="text"
+                placeholder="Zoek ingredient" data-items="8" />
+            <input type="submit" value="sla ingredient op" id="submit-ingredient">
+
+            <br>
+        </div>
     </div>
 </body>
+
+<script src="../script/ingredients.js"></script>

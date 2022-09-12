@@ -6,20 +6,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../script/user.js"></script>
     <!-- local sources -->
-    <script src="../script/globalVariables.js"></script>
-    <script src="../script/profile.js"></script>
+    <script src="../script/allRecipes.js"></script>
+ 
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
     <div id="login-header">
         <a id="login-button" href="login.html">Sign in</a>
-        <a id="profile-button" href="myInfo.html">Profile</a>
+        <a id="profile-button" href="userInfo.html">Profile</na>
         <a id="logout-button" href="../index.html">Sign out</a>
     </div>
     <div class="container-fluid">
         <div class="page-header">
-            <h1 id="title">Voorraad</h1>
+            <h1 id="title">Recepten App</h1>
         </div>
         <nav class="navbar navbar-default">
             <div class="topnav">
@@ -27,20 +28,15 @@
                 <a id="inventory-page" href="inventory.html">Inventory</a>
                 <a id="ingredients-page" href="ingredients.html">Ingredients</a>
                 <a id="recipes-page" href="recipes.html">Recipes</a>
+               
             </div>
         </nav>
-    </div>
-    <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10" id="serverResponse"></div>
-        <div class="col-sm-1"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-1" id="serverResponse">
-            <a href="addStock.html"><button type="button" class="btn btn-primary">Add item</button></a>
+        <div>
+            <!-- <button id="GetRecipes" onclick="getRecipes()">Show All Recipes</button> -->
         </div>
-        <div class="col-sm-10"></div>
+        
+        <div id="go10">  
+            
+        </div>
     </div>
 </body>
-<script src="../script/retrieveStock.js"></script>
