@@ -59,19 +59,21 @@
                     <td class="recipeAttribute"><span id="vegetarian"></span></td>
                 </tr>
                 <td class="recipeAttribute">Ingredienten:</td>
-                <td class=" recipeAttribute">
+                <td class="recipeAttribute">
                     <div id="ingredients"> </div>
                 </td>
             </table>
             <br>
-            <input type="text" id="hoeveelheid" placeholder="hoeveelheid">
-            <input type="text" id="eenheid" placeholder="eenheid">
-            <input autocomplete="off" class="input" id="ingredientName" name="prof1" type="text"
-                placeholder="Zoek ingredient" data-items="8" />
+            <div class="row">
+                <div class="col-sm-2"><input type="text" id="hoeveelheid" placeholder="hoeveelheid"></div>
+                <div class="col-sm-2"><select class="form-control" id="quantityTypeSelect"></select></div>
+                <div class="col-sm-2"><input autocomplete="off" class="input" id="ingredientName" name="prof1"
+                        type="text" placeholder="Zoek ingredient" data-items="8" /></div>
+            </div>
             <input type="submit" value="sla ingredient op" id="submit-ingredient">
-
-            <br>
         </div>
+        <br>
+    </div>
     </div>
 </body>
 
