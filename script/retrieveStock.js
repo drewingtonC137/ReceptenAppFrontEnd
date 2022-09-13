@@ -15,6 +15,12 @@ function checkloginbeforedataretrieval() {
     }
 }
 
+function cleanString(string) {
+    string = string.toLowerCase();
+    string =  string.charAt(0).toUpperCase() + string.slice(1);
+    return string.replace("_", " ");
+  }
+
 function getUserStock(userIdSession){
     fetch(url + "/stockFromAccount/" + userIdSession)
         .then( response => response.json())
@@ -27,7 +33,7 @@ function stockListToTable(infovanserver){
     console.log("interpretting data")
     let startString = '<table class="table table-striped">';
     startString += `<tr><td>#</td>
-    <td>ingredeint name</td>
+    <td>ingredient name</td>
     <td>amount</td>
     <td>amount type</td>
     <td>expiration date</td>
@@ -36,7 +42,7 @@ function stockListToTable(infovanserver){
         startString += `<tr><td>${x+1}</td>
         <td>${infovanserver[x].ingredient.name}</td>
         <td>${infovanserver[x].amount}</td>
-        <td>${infovanserver[x].amountType}</td>
+        <td>${cleanString(infovanserver[x].amountType)}</td>
         <td>${infovanserver[x].expirationDate}</td>
         <td>${infovanserver[x].availableToOthers}</td></tr>
         `;

@@ -9,6 +9,7 @@ function addQuantityTypesToSelect(){
 }
 
 function cleanString(string) {
+    string = string.toLowerCase();
     string =  string.charAt(0).toUpperCase() + string.slice(1);
     return string.replace("_", " ");
   }
@@ -19,7 +20,7 @@ function fillQuantityTypeSelect (data){
     var option;
     for(var x = 0; x < data.length ; x++){
         option = document.createElement("option");
-        option.text = cleanString(data[x].toLowerCase());
+        option.text = cleanString(data[x]);
         option.value = data[x];
         quantityTypeSelect.add(option);
         console.log(data[x]);
@@ -36,11 +37,11 @@ submitStock.addEventListener("click", (e) => {
    const quantity = document.getElementById("quantity").value;
    const expirationdate = document.getElementById("expirationDate").value;
    const quantityType = document.getElementById("quantityTypeSelect").value;
-
-   if (document.getElementById("availableToOthers").value == "on"){
+    let availableToOthers
+    alert(document.getElementById("availableToOthers").checked);
+   if (document.getElementById("availableToOthers").checked){
         availableToOthers = "true";
-   }
-   else {
+   } else {
         availableToOthers = "false";
    }
 //    const availableToOthers = document.getElementById("availableToOthers").value;
