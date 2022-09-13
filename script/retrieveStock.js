@@ -1,6 +1,5 @@
 checkloginbeforedataretrieval();
 
-
 // Check if you are logged into an account.
 function checkloginbeforedataretrieval() {
     var userIdSession = localStorage.getItem("accountId");
