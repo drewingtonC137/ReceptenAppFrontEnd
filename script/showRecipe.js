@@ -1,16 +1,11 @@
 let url = "http://localhost:8082/"
 let endpoint = "findAllRecipes"
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
 window.onload = function(){
     
-        fetch(url+endpoint)
-            .then(a => a.json())
-            .then(b => {
-                for (var x = 0; x < b.length; x++) {
-
-                    var receptId = b[x].id;
-                    console.log(receptId)
-                }
-                fetch("http://localhost:8082/getRecipe/" + receptId)
+    
+                fetch("http://localhost:8082/getRecipe/" + params.id)
             .then(a => a.json())
             .then(b => {
                     console.log(b);
@@ -21,5 +16,5 @@ window.onload = function(){
                   
             })
             
-            })        
+                  
     }
