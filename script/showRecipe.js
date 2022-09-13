@@ -10,7 +10,7 @@ window.onload = function(){
                     var receptId = b[x].id;
                     console.log(receptId)
                 }
-                fetch("http://localhost:8082/getRecipe/" + 12)
+                fetch("http://localhost:8082/getRecipe/" + receptId)
             .then(a => a.json())
             .then(b => {
                     console.log(b);
