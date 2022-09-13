@@ -1,34 +1,38 @@
-html, body {
-    height: 100%;
-  }
-  
+html,
 body {
-      background-color: #ffffff;
-  
-      font: 14px sans-serif;
-      margin: auto;
-      position: relative;
-  
-      justify-content: center;
-  
-      align-items: center;
+    height: 100%;
+}
+
+body {
+    background-color: #ffffff;
+
+    font: 14px sans-serif;
+    margin: auto;
+    position: relative;
+
+    justify-content: center;
+
+    align-items: center;
 }
 
 #login-header {
-    position:absolute;
-    top:0;
-    right:0;
-    padding:5px;
-    color:#000000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    color: #000000;
 }
 
-#login-button, #logout-button, #profile-button {
-    color:#000000;
+#login-button,
+#logout-button,
+#profile-button {
+    color: #000000;
     font-weight: bold;
-    padding:5px;
+    padding: 5px;
 }
 
-#logout-button, #profile-button {
+#logout-button,
+#profile-button {
     display: none;
 }
 
@@ -44,7 +48,7 @@ body {
     overflow: hidden;
     background-color: rgb(255, 255, 255);
 }
-  
+
 .topnav a {
     float: left;
     color: #000000;
@@ -59,4 +63,7 @@ body {
     color: rgb(255, 255, 255);
 }
 
-
+[class^="recipeAttribute"] {
+    width: 100px;
+    vertical-align: text-top;
+}
