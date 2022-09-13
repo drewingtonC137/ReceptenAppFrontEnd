@@ -12,11 +12,17 @@ submitRecipe.addEventListener("click", (e) => {
    const kitchenAppliance = document.getElementById("kitchenAppliance").value;
    const instructions = document.getElementById("instructions").value;
 
+   let vegetarian = null
+   let input = document.getElementsByClassName('messageCheckbox')
+   vegetarian = input.checked
+
    recipeObj.name = recipeName;
    recipeObj.totalPortions = portions;
    recipeObj.cookingTime = cookingTime;
    recipeObj.kitchen_appliance = kitchenAppliance;
    recipeObj.instructions = instructions;
+   recipeObj.vegitarian = vegetarian;
+   recipeObj.user_id = localStorage.getItem("user_id");
 
    fetch(url + "/addRecipe", {
       method: 'POST',
@@ -25,11 +31,10 @@ submitRecipe.addEventListener("click", (e) => {
       },
       body: JSON.stringify(recipeObj)
    })
-      .then(res => res.text())
-      .then(d => {
-         localStorage.setItem("recipeId", d)
+      .then(res => res.json())
+      .then((recipeId = res.recipeId) => {
          alert("Recept gemaakt")
-         window.location.assign("ingredients.html")
+         window.location.assign("ingredients.html?id=" + recipeId)
       })
 
 })
