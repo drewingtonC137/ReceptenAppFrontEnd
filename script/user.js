@@ -63,19 +63,20 @@ const submitButton = document.getElementById("submit");
 console.log(url);
 
 submitButton.addEventListener("click",(e)=>{ 
-    var id = localStorage.getItem("accountId");
-
     let Description = document.getElementById("description").value;
     let Name = document.getElementById("uname").value;
     let City = document.getElementById("city").value;
     let StreetName = document.getElementById("adres1").value;
     let HouseNumber = document.getElementById("adres2").value;
-    HouseNumber = parseInt(HouseNumber);
-    if(!Number.isInteger(HouseNumber)){
+    if(!/^\d+$/.test(HouseNumber) && HouseNumber.length >= 1){
         alert("Fill in a correct housenumber!");
         return;
     }
     let HouseNumberAddition = document.getElementById("adres3").value;
+    if((HouseNumberAddition.length == 1 && !(/[a-zA-Z]/).test(HouseNumberAddition)) || HouseNumberAddition.length > 1){
+        alert("Fill in a correct addition!")
+        return;
+    }
     let ZipCode = document.getElementById("adres4").value;
 
     let UserJson = {}; 
@@ -83,8 +84,8 @@ submitButton.addEventListener("click",(e)=>{
     UserJson.description = Description;
     UserJson.cityName = City;
     UserJson.streetName = StreetName;
-    UserJson.houseNumber = HouseNumber;
-    UserJson.houseNumberAddition = HouseNumberAddition;
+    UserJson.houseNumber = parseInt(HouseNumber);
+    UserJson.houseNumberAddition = HouseNumberAddition.toUpperCase();
     UserJson.zipCode = ZipCode;
     let UserJsonStringify = JSON.stringify(UserJson);
 
