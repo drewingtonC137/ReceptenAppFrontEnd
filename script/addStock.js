@@ -64,7 +64,7 @@ submitStock.addEventListener("click", (e) => {
         .then(res => res.text())
         .then(d => {
             alert("Stock gemaakt")
-            //  window.location.assign("inventory.html")
+            // window.location.assign("inventory.html")
         })
 })
 
