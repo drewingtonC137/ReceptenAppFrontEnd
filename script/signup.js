@@ -2,6 +2,7 @@
     Creates an account and saves the values in a Account SQL database.
     TODO: Error message when trying to create an account with an existing username or email inside the Account database.
 */
+console.log("test")
 const signupButton = document.getElementById("signup");
 
 signupButton.addEventListener("click", (e) => {

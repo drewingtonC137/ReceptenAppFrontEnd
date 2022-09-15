@@ -1,3 +1,7 @@
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+var StockObj;
+
 addQuantityTypesToSelect();
 
 function addQuantityTypesToSelect() {
@@ -28,18 +32,37 @@ function fillQuantityTypeSelect(data) {
     }
 }
 
-//Wegschrijven van een stock item naar de database
+window.onload = function () {
+    fetch(url + "/stockFromID/" + params.id)
+        .then(a => a.json())
+        .then(b => {
+            StockObj = b;
+            populateDataFields();
+        })
+}
+
+function populateDataFields() {
+    document.getElementById("ingredientName").value = StockObj.ingredient.name;
+    document.getElementById("quantity").value = StockObj.amount;
+    document.getElementById("expirationDate").value = StockObj.expirationDate;
+    document.getElementById("quantityTypeSelect").value = StockObj.amountType;
+    if (StockObj.availableToOthers) {
+        document.getElementById("availableToOthers").checked = true;
+    }
+}
+
+//Updaten Stock in database
 const submitStock = document.getElementById("submitStock")
 submitStock.addEventListener("click", (e) => {
     console.log("adding stock item");
-    let StockObj = {};
 
     const ingredientName = document.getElementById("ingredientName").value;
     const quantity = document.getElementById("quantity").value;
     const expirationdate = document.getElementById("expirationDate").value;
     const quantityType = document.getElementById("quantityTypeSelect").value;
+
     let availableToOthers
-    alert(document.getElementById("availableToOthers").checked);
+    // alert(document.getElementById("availableToOthers").checked);
     if (document.getElementById("availableToOthers").checked) {
         availableToOthers = "true";
     } else {
@@ -49,22 +72,21 @@ submitStock.addEventListener("click", (e) => {
 
     console.log(document.getElementById("availableToOthers").value);
 
+    StockObj.id = params.id;
     StockObj.amount = quantity;
     StockObj.amountType = quantityType;
     StockObj.expirationDate = expirationdate;
     StockObj.availableToOthers = availableToOthers;
 
-    fetch(url + "/addStock/" + localStorage.getItem("accountId") + "/" + ingredientName, {
-        method: 'POST',
+    fetch(url + "/changeStock/" + ingredientName, {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json;charset=utf8'
         },
         body: JSON.stringify(StockObj)
     })
-        .then(res => res.text())
+        // .then(window.location.href = "inventory.html")
         .then(d => {
-            alert("Stock gemaakt")
-            // window.location.assign("inventory.html")
+            window.location.href = "inventory.html";
         })
 })
-

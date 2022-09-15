@@ -1,4 +1,4 @@
-// window.onload = function () {
+addKitchenApplianceToSelect()
 
 // wegschrijven van de recept data naar de database recept
 const submitRecipe = document.getElementById("submitRecipe")
@@ -9,12 +9,16 @@ submitRecipe.addEventListener("click", (e) => {
    const recipeName = document.getElementById("recipeName").value;
    const portions = document.getElementById("portions").value;
    const cookingTime = document.getElementById("cookingTime").value;
-   const kitchenAppliance = document.getElementById("kitchenAppliance").value;
+   const kitchenAppliance = document.getElementById("kitchenApplianceSelect").value;
    const instructions = document.getElementById("instructions").value;
+   let vegetarian;
 
-   let vegetarian = null
-   let input = document.getElementsByClassName('messageCheckbox')
-   vegetarian = input.checked
+   if (document.getElementById("vegetarian").value == "on") {
+      vegetarian = "true";
+   }
+   else {
+      vegetarian = "false";
+   }
 
    recipeObj.name = recipeName;
    recipeObj.totalPortions = portions;
@@ -22,9 +26,10 @@ submitRecipe.addEventListener("click", (e) => {
    recipeObj.kitchen_appliance = kitchenAppliance;
    recipeObj.instructions = instructions;
    recipeObj.vegitarian = vegetarian;
-   recipeObj.user_id = localStorage.getItem("user_id");
+   accountId = localStorage.getItem("accountId");
+   console.log(recipeName)
 
-   fetch(url + "/addRecipe", {
+   fetch(url + "/addRecipe/" + accountId, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json;charset=utf8'
@@ -38,5 +43,32 @@ submitRecipe.addEventListener("click", (e) => {
       })
 
 })
+
+function addKitchenApplianceToSelect() {
+   fetch(url + "/returnKitchenAppliance")
+      .then(response => response.json())
+      .then(
+         data => {
+            fillKitchenApplianceSelect(data)
+         })
+}
+
+function cleanString(string) {
+   string = string.charAt(0).toUpperCase() + string.slice(1);
+   return string.replace("_", " ");
+}
+
+function fillKitchenApplianceSelect(data) {
+   console.log("Fill select with data");
+   var kitchenApplianceSelect = document.getElementById("kitchenApplianceSelect");
+   var option;
+   for (var x = 0; x < data.length; x++) {
+      option = document.createElement("option");
+      option.text = cleanString(data[x].toLowerCase());
+      option.value = data[x];
+      kitchenApplianceSelect.add(option);
+      console.log(data[x]);
+   }
+}
 
 

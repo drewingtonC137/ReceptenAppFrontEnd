@@ -1,6 +1,7 @@
 /*
    zoekt naar de ingeredienten
 */
+
 let recipeId = 0
 
 window.onload = function () {
@@ -14,7 +15,7 @@ window.onload = function () {
          document.getElementById("recipeName").innerHTML = recipeObj.name
          document.getElementById("portions").innerHTML = recipeObj.totalPortions
          document.getElementById("cooking_time").innerHTML = recipeObj.cookingTime
-         document.getElementById("kitchen_appliances").innerHTML = recipeObj.kitchenAppliances
+         document.getElementById("kitchen_appliances").innerHTML = recipeObj.kitchenApplianceSelect
          document.getElementById("vegetarian").innerHTML = recipeObj.vegetarian
          document.getElementById("instructions").innerHTML = recipeObj.instructions
       })
@@ -36,6 +37,7 @@ window.onload = function () {
    //       });
    //    })
    getIngredientsFromRecipe()
+   addQuantityTypesToSelect()
 }
 
 function getIngredientsFromRecipe() {
@@ -46,16 +48,16 @@ function getIngredientsFromRecipe() {
          let tbdy = document.createElement('tbdy');
 
          data.forEach(element => {
-            let tr = document.createElement('tr');
             let ingredient = element.ingredient
+            let tr = document.createElement('tr');
             let td = document.createElement('td');
             td.style.width = "10px"
             td.appendChild(document.createTextNode(element.amount));
             tr.appendChild(td);
             tbdy.appendChild(tr);
             td = document.createElement('td');
-            td.style.width = "30px"
-            td.appendChild(document.createTextNode(element.amountType));
+            td.style.width = "20px"
+            td.appendChild(document.createTextNode(element.amountType.toLowerCase()));
             tr.appendChild(td);
             tbdy.appendChild(tr);
             td = document.createElement('td');
@@ -72,6 +74,35 @@ function getIngredientsFromRecipe() {
 
 }
 
+function addQuantityTypesToSelect() {
+   fetch(url + "/returnQuantityTypes")
+      .then(response => response.json())
+      .then(
+         data => {
+            fillQuantityTypeSelect(data)
+         })
+}
+
+function cleanString(string) {
+   string = string.charAt(0).toUpperCase() + string.slice(1);
+   return string.replace("_", " ");
+}
+
+function fillQuantityTypeSelect(data) {
+   console.log("Fill select with data");
+   var quantityTypeSelect = document.getElementById("quantityTypeSelect");
+   var option;
+   for (var x = 0; x < data.length; x++) {
+      option = document.createElement("option");
+      option.text = cleanString(data[x].toLowerCase());
+      option.value = data[x];
+      quantityTypeSelect.add(option);
+      console.log(data[x]);
+   }
+}
+
+
+
 const submitIngredient = document.getElementById("submit-ingredient");
 
 submitIngredient.addEventListener("click", (e) => {
@@ -80,11 +111,11 @@ submitIngredient.addEventListener("click", (e) => {
 
    const name = document.getElementById("ingredientName").value;
    const amount = document.getElementById("hoeveelheid").value;
-   const amountType = document.getElementById("eenheid").value;
+   const amountType = document.getElementById("quantityTypeSelect").value;
 
    ingredientObj.name = name;
    recipeIngredientObj.amount = amount;
-   recipeIngredientObj.amount_type = amountType;
+   recipeIngredientObj.amountType = amountType;
    // recipeIngredientObj.recept_id = localStorage.getItem("recipeId");
 
    fetch(url + "/setIngredient/" + name, {

@@ -1,5 +1,4 @@
-var accountId = localStorage.getItem("accountId");
-logInStatus(accountId);
+logInStatus(id);
 
 // Check if you are logged into an account.
 function logInStatus(accountIdSession) {

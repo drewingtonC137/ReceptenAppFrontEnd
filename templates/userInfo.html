@@ -12,13 +12,6 @@
     <script src="../script/globalVariables.js"></script>
     <script src="../script/profile.js"></script>
     <link rel="stylesheet" href="../style/style.css">
-    <style>
-        /* .btn-success{
-            size: 10px 20px;
-            background-color: aquamarine;
-            border: 2px solid red;
-        } */
-    </style>
     <script>
     </script>
 </head>
@@ -49,37 +42,19 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <h1>User information</h1>
-                        <label for="lname">Name:</label>
-                        <input type="text" id="uname" name="uname" class="form-control"><br><br>
-                        <label for="lname">Description:</label>
-                        <input type="text" id="description" name="description" class="form-control"><br><br>
-                        <label for="lname">City</label>
-                        <input type="text" id="city" name="city" class="form-control"><br><br>
-                        <label for="lname">Street</label>
-                        <input type="text" id="adres1" name="adres1" class="form-control"><br><br>
-                        <label for="lname">house number</label>
-                        <input type="text" id="adres2" name="adres2" class="form-control"><br><br>
-                        <label for="lname">house number addition</label>
-                        <input type="text" id="adres3" name="adres3" class="form-control"><br><br>
-                        <label for="lname">Zip code</label>
-                        <input type="text" id="adres4" name="adres4" class="form-control"><br><br>
-                        <!-- <input type="button" class="btn btn-success" value="Submit" onclick="addUser()"> -->
-                        <input type="submit" id="submit" class="custom-btn positive-button" value="Submit">
+                        <input type="text" id="uname" name="uname" class="user-info" placeholder="Name"><br><br>
+                        <input type="text" id="description" name="description" class="user-info" placeholder="Description"><br><br>
+                        <input type="text" id="city" name="city" class="user-info" placeholder="City"><br><br>
+                        <input type="text" id="adres1" name="adres1" class="user-info" placeholder="Street"><br><br>
+                        <input type="text" id="adres2" name="adres2" class="user-info" placeholder="House number"><br><br>
+                        <input type="text" id="adres3" name="adres3" class="user-info" placeholder="House number addition"><br><br>
+                        <input type="text" id="adres4" name="adres4" class="user-info" placeholder="Zip code"><br><br>
+                        <input type="submit" id="submit" class="custom-btn positive-button" value="SUBMIT">
                     </div>
-                    <!-- <div class="col-sm-3">
-                        <input type="button" value="klik hier" onclick="ShowAllUsers()">
-                        <div id="go"></div>
-                        <input type="button" class="btn btn-success" value="klik hier" onclick="ShowAllUsers2()">
-                        <div id="go2"></div>
-                        <input type="button" class="btn btn-success" value="Nieuwe knop" onclick="showUserInfo()">
-                        <div id="go3"></div>
-                        Name:<input id="nameInput" class="form-control"> <br>
-                        City:<input id="cityInput" class="form-control"> <br>
-                        Send: <input type="button" value="send" onclick="">
-                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 </body>
 <script src="../script/user.js"></script>
+<script src="../script/fillUserInfo.js"></script>
