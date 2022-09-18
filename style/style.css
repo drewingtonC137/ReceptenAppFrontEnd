@@ -49,7 +49,7 @@ button {
 }
 
 #login-header {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     padding: 5px;
@@ -69,8 +69,30 @@ button {
     display: none;
 }
 
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 #title {
+    position: relative;
+    background-origin: grey;
     text-align: center;
+
+}
+
+#signin {
+    position: relative;
+    background-origin: grey;
+    text-align: center;
+}
+
+#login-form-wrap {
+    width: 400px;
+    opacity: 50%;
 }
 
 #homepage {
