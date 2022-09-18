@@ -8,36 +8,43 @@ window.onload = function () {
    const urlSearchParams = new URLSearchParams(window.location.search);
    const params = Object.fromEntries(urlSearchParams.entries());
    recipeId = params.id
-   document.getElementsByClassName("recipdeAttribute")
+   document.getElementsByClassName("recipeAttribute")
    fetch(url + "/getRecipe/" + recipeId)
       .then((response) => response.json())
       .then((recipeObj) => {
+
+         instructions = recipeObj.instructions.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
          document.getElementById("recipeName").innerHTML = recipeObj.name
          document.getElementById("portions").innerHTML = recipeObj.totalPortions
          document.getElementById("cooking_time").innerHTML = recipeObj.cookingTime
          document.getElementById("kitchen_appliances").innerHTML = recipeObj.kitchenApplianceSelect
          document.getElementById("vegetarian").innerHTML = recipeObj.vegetarian
-         document.getElementById("instructions").innerHTML = recipeObj.instructions
+         document.getElementById("instructions").innerHTML = instructions
       })
-   // // ophalen van ingredient data
-   // fetch(url + "/returnIngredients")
-   //    .then(response => response.json())
-   //    .then(data => {
-   //       var availableIngredients = [];
-   //       var list = document.getElementById('ingredientArray');
 
-   //       for (var x = 0; x < data.length; x++) {
-   //          availableIngredients.push(data[x].name);
-   //       }
-
-   //       availableIngredients.forEach(function (item) {
-   //          var option = document.createElement('option');
-   //          option.value = item;
-   //          list.appendChild(option);
-   //       });
-   //    })
+   getIngredientsFromDatabase()
    getIngredientsFromRecipe()
    addQuantityTypesToSelect()
+}
+
+function getIngredientsFromDatabase() {
+   fetch(url + "/returnIngredients")
+      .then(response => response.json())
+      .then(data => {
+         var availableIngredients = [];
+         var list = document.getElementById('ingredientArray');
+
+         for (var x = 0; x < data.length; x++) {
+            availableIngredients.push(data[x].name);
+         }
+
+         availableIngredients.forEach(function (item) {
+            var option = document.createElement('option');
+            option.value = item;
+            list.appendChild(option);
+         });
+      })
 }
 
 function getIngredientsFromRecipe() {
@@ -51,18 +58,16 @@ function getIngredientsFromRecipe() {
             let ingredient = element.ingredient
             let tr = document.createElement('tr');
             let td = document.createElement('td');
-            td.style.width = "10px"
-            td.appendChild(document.createTextNode(element.amount));
-            tr.appendChild(td);
-            tbdy.appendChild(tr);
-            td = document.createElement('td');
-            td.style.width = "20px"
-            td.appendChild(document.createTextNode(element.amountType.toLowerCase()));
-            tr.appendChild(td);
-            tbdy.appendChild(tr);
-            td = document.createElement('td');
-            td.style.width = "200px"
-            td.appendChild(document.createTextNode(ingredient.name));
+            td.appendChild(document.createTextNode(element.amount + " " + element.amountType.toLowerCase() + " " + ingredient.name));
+            // td.style.width = "40px"
+            // tr.appendChild(td);
+            // td = document.createElement('td');
+            // td.appendChild(document.createTextNode(element.amountType.toLowerCase()));
+            // td.style.width = "40px"
+            // tr.appendChild(td);
+            // td = document.createElement('td');
+            // td.appendChild(document.createTextNode(ingredient.name));
+            // td.style.width = "500px"
             tr.appendChild(td);
             tbdy.appendChild(tr);
 

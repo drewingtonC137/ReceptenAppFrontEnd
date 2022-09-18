@@ -34,19 +34,41 @@
             </div>
         </nav>
         <div class="row">
-            <label for="recipeName">Recept:</label><input type="text" id="recipeName"><br>
-            <label for="portions">Portions:</label><input type="text" id="portions"><br>
-            <label for="cookingTime">Bereidingstijd:</label><input type="text" id="cookingTime"><br>
-            <label for="kitchenApplience">Benodigdheden:</label>
-            <div class="col-sm-1"><select class="form-control" id="kitchenApplianceSelect"></select>
-            </div>
-        </div>
-        <label for="vegetarian">Vegetarisch:</label><input class="messageCheckbox" type="checkbox" id="vegetarian"><br>
-        <label for="instructions">Instructies:</label><br><textarea id="instructions" rows="20"
-            cols="100"></textarea><br>
-        <input type="submit" value="Voeg ingredienten toe" id="submitRecipe">
+            <!-- <div class="col-sm-1"></div> -->
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <label for="recipeName">Recept:</label>
+                    <input type="text" class="form-control" id="recipeName">
+                </div>
+                <div class="form-group">
+                    <label for="portions">Portions:</label>
+                    <input type="text" class="form-control" id="portions">
+                </div>
+                <div class="form-group">
+                    <label for="cookingTime">Bereidingstijd:</label>
+                    <input type="text" class="form-control" id="cookingTime">
+                </div>
+                <div class="form-group">
+                    <label for="kitchenApplience">Benodigdheden:</label>
+                    <select class="form-control" id="kitchenApplianceSelect"></select>
 
-    </div>
+                </div>
+                <div class="form-group">
+                    <label for="instructions">Instructies:</label><br>
+                    <textarea id="instructions" rows="20" cols="100"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Voeg ingredienten toe" id="submitRecipe">
+                </div>
+            </div>
+
+
+            <!-- <label for="vegetarian">Vegetarisch:</label><input class="messageCheckbox" type="checkbox"
+                id="vegetarian"><br> -->
+
+
+
+        </div>
     </div>
 </body>
 

@@ -33,47 +33,53 @@
                 <a id="recipes-page" href="AllRecipes.html">All Recipes</a>
             </div>
         </nav>
-        <div>
-            <table id="recipe">
-                <tr>
-                    <td class="recipeAttribute">Receptnaam: </td>
-                    <td class="recipeAttribute"><span id="recipeName"></span></td>
-                </tr>
-                <tr>
-                    <td class="recipeAttribute">Porties: </td>
-                    <td class="recipeAttribute"><span id="portions"></span></td>
-                </tr>
-                <tr>
-                    <td class="recipeAttribute">Bereidingstijd: </td>
-                    <td class="recipeAttribute"><span id="cooking_time"></span></td>
-                </tr>
-                <tr>
-                    <td class="recipeAttribute">Benodigdheden: </td>
-                    <td class="recipeAttribute"><span id="kitchen_appliances"></span></td>
-                </tr>
-                <tr>
-                    <td class="recipeAttribute">Instructies: </td>
-                    <td class="recipeAttribute"><span id="instructions"></span></td>
-                </tr>
-                <tr>
-                    <td class="recipeAttribute">Bijzonderheden: </td>
-                    <td class="recipeAttribute"><span id="vegetarian"></span></td>
-                </tr>
-                <td class="recipeAttribute">Ingredienten:</td>
-                <td class="recipeAttribute">
-                    <div id="ingredients"> </div>
-                </td>
-            </table>
-            <br>
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-2"><input type="text" id="hoeveelheid" placeholder="hoeveelheid"></div>
-                <div class="col-sm-2"><select class="form-control" id="quantityTypeSelect"></select></div>
-                <div class="col-sm-2"><input autocomplete="off" class="input" id="ingredientName" name="prof1"
-                        type="text" placeholder="Zoek ingredient" data-items="8" /></div>
+                <div class="col-sm-2"><b>Receptnaam: </b> </div>
+                <div class="col-sm-3"><span id="recipeName"></span></div>
+
             </div>
-            <input type="submit" value="sla ingredient op" id="submit-ingredient">
+            <div class="row">
+                <div class="col-sm-2"><b>Porties: </b></div>
+                <div class="col-sm-3"><span id="portions"></span></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"><b>Bereidingstijd: </b></div>
+                <div class="col-sm-3"><span id="cooking_time"></span></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"><b>Benodigdheden: </b></div>
+                <div class="col-sm-3"><span id="kitchen_appliances"></span></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"><b>Bijzonderheden: </b></div>
+                <div class="col-sm-2"><span id="vegetarian"></span></div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6"><br><b>Instructies: </b><br>
+                    <span id="instructions"></span>
+                </div>
+
+                <div class="col-sm-6"><br><b>Ingredienten:</b> <br>
+                    <span id="ingredients"></span>
+                </div>
+            </div>
         </div>
         <br>
+        <div class="row">
+            <div class="col-sm-3"><input type="text" id="hoeveelheid" placeholder="hoeveelheid"></div>
+            <div class="col-sm-3"><select class="form-control" id="quantityTypeSelect"></select></div>
+            <div class="col-sm-3"><input autocomplete="off" class="input" id="ingredientName" name="prof1" type="text"
+                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
+                <datalist id="ingredientArray"></datalist>
+            </div>
+            <div class="col-sm-3"><input type="submit" value="sla ingredient op" id="submit-ingredient"></div>
+        </div>
+
+    </div>
+    <br>
     </div>
     </div>
 </body>
