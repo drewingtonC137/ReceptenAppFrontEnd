@@ -1,6 +1,6 @@
 let receptenArray;
 let stockArray;
-let recipeIngredientArray;
+let recipeIngredientArray = [];
 let url = "http://localhost:8082";
 
 function hoi() {
@@ -21,16 +21,17 @@ function checken() {
    console.log(receptenArray)
    console.log(stockArray)
    console.log(recipeIngredientArray)
-   giveSuggestion(recipeIngredientArray, stockArray)
+   for (var i = 0; i < recipeIngredientArray.length; i++) {
+      document.getElementById("suggestionBasedOnStock").innerHTML += giveSuggestion(recipeIngredientArray[i],
+         stockArray) + "<br>"
+   }
 }
 
 function getRecipeIngredient(recipeId) {
    fetch(url + "/GetRecipeIngredient/" + recipeId)
       .then(a => a.json())
-      .then(b => recipeIngredientArray = b)
+      .then(b => recipeIngredientArray.push(b))
 }
-
-
 
 function giveSuggestion(recept, stockArray) {
    console.log(recept)
@@ -44,5 +45,5 @@ function giveSuggestion(recept, stockArray) {
          }
       }
    }
-   return totaal;
+   return (totaal / recept.length) * 100;
 }
