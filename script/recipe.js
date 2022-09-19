@@ -1,5 +1,7 @@
 addKitchenApplianceToSelect()
 
+var tempImage = "";
+
 // wegschrijven van de recept data naar de database recept
 const submitRecipe = document.getElementById("submitRecipe")
 submitRecipe.addEventListener("click", (e) => {
@@ -11,23 +13,29 @@ submitRecipe.addEventListener("click", (e) => {
    const cookingTime = document.getElementById("cookingTime").value;
    const kitchenAppliance = document.getElementById("kitchenApplianceSelect").value;
    const instructions = document.getElementById("instructions").value;
-   let vegetarian;
 
-   if (document.getElementById("vegetarian").value == "on") {
-      vegetarian = "true";
-   }
-   else {
-      vegetarian = "false";
-   }
+
+
+   // let vegetarian;
+
+   // if (document.getElementById("vegetarian").value == "on") {
+   //    vegetarian = "true";
+   // }
+   // else {
+   //    vegetarian = "false";
+   // }
 
    recipeObj.name = recipeName;
    recipeObj.totalPortions = portions;
    recipeObj.cookingTime = cookingTime;
    recipeObj.kitchen_appliance = kitchenAppliance;
    recipeObj.instructions = instructions;
-   recipeObj.vegitarian = vegetarian;
+   recipeObj.image = tempImage;
+
+   // recipeObj.vegitarian = vegetarian;
    accountId = localStorage.getItem("accountId");
    console.log(recipeName)
+   console.log(JSON.stringify(recipeObj))
 
    fetch(url + "/addRecipe/" + accountId, {
       method: 'POST',
@@ -35,6 +43,7 @@ submitRecipe.addEventListener("click", (e) => {
          'Content-Type': 'application/json;charset=utf8'
       },
       body: JSON.stringify(recipeObj)
+
    })
       .then(res => res.json())
       .then((recipeId = res.recipeId) => {
@@ -71,4 +80,12 @@ function fillKitchenApplianceSelect(data) {
    }
 }
 
-
+function addImageToRecipe(element) {
+   var file = element.files[0];
+   var reader = new FileReader();
+   reader.onloadend = function () {
+      console.log('RESULT', reader.result)
+      tempImage = reader.result
+   }
+   reader.readAsDataURL(file);
+}
