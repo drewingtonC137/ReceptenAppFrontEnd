@@ -3,8 +3,6 @@ checkUrl();
 
 function checkUrl (){
     let hostname = location.hostname;
-    // console.log(hostname)
-    hostname = "127.0.0.1";
     console.log(hostname)
     if (hostname.includes("localhost") || hostname.includes("127.0.0.1") || hostname.length === 0){
         url = "http://localhost:8082";
