@@ -46,4 +46,4 @@ function isPositiveInteger(str) {
     }
   
     return false;
-  }
+}
