@@ -46,7 +46,8 @@ function giveSuggestion(recept, stockArray) {
             console.log("getroffen")
             console.log(receptenArray[x].name)
             totaal++;
-            var percentage = totaal/recept.length * 100;
+            var percentage = Math.round( totaal/recept.length * 100 );
+            
              if (percentage > 40){
                document.getElementById("suggestion").innerHTML += "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>";
                console.log(percentage)
