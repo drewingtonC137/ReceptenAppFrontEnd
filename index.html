@@ -8,6 +8,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- local sources -->
     <script src="script/globalVariables.js"></script>
+    <script>
+        window.onload = function () {
+            window.location.replace("templates/allrecipes.html");
+        }
+
+    </script>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
@@ -24,8 +30,7 @@
             <div class="topnav">
                 <a id="homepage" href="index.html">Homepage</a>
                 <a id="inventory-page" href="templates/inventory.html">Inventory</a>
-                <a id="ingredients-page" href="templates/ingredients.html">Ingredients</a>
-                <a id="recipes-page" href="templates/recipes.html">Recipes</a>
+                <a id="recipes-page" href="templates/recipes.html">Add a recipe</a>
                 <a id="recipes-page" href="templates/AllRecipes.html">All Recipes</a>
             </div>
         </nav>

@@ -1,4 +1,7 @@
 let endpoint = "/findAllRecipes"
+window.onload = function () {
+    logInStatus(id);
+}
 
 fetch(url + endpoint)
     .then(a => a.json())

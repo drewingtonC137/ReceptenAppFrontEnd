@@ -1,5 +1,7 @@
 let recipeId = 0
-
+window.onload = function () {
+   logInStatus(id);
+}
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 recipeId = params.id

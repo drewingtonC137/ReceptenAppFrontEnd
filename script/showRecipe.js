@@ -2,7 +2,12 @@ let recipeId = 0
 let benodigdheden
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
+
 recipeId = params.id
+
+window.onload = function () {
+        logInStatus(id)
+}
 document.getElementsByClassName("recipeAttribute")
 fetch(url + "/getRecipe/" + recipeId)
         .then((response) => response.json())
