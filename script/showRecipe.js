@@ -13,9 +13,13 @@ fetch(url + "/getRecipe/" + recipeId)
         .then((response) => response.json())
         .then((recipeObj) => {
 
-                if (recipeObj.image != null) {
+                if (recipeObj.image != '') {
                         var img = new Image();
                         img.src = recipeObj.image;
+                        document.getElementById("plaatje").src = img.src;
+                } else {
+                        var img = new Image();
+                        img.src = "../NoFoodToWaste.png";
                         document.getElementById("plaatje").src = img.src;
                 }
 
