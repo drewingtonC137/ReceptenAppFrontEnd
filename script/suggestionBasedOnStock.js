@@ -1,6 +1,7 @@
-let receptenArray;
-let stockArray;
+let receptenArray = [];
+let stockArray = [];
 let recipeIngredientArray = [];
+
 //let id = localStorage.getItem("accountId");
 //let url = "http://localhost:8082";
 
@@ -16,14 +17,18 @@ function hoi() {
    fetch(url + "/stockFromAccount/" + id)
       .then(a => a.json())
       .then(b => stockArray = b)
+      checken();
 }
 
 function checken() {
+
+
    console.log(receptenArray)
    console.log(stockArray)
    console.log(recipeIngredientArray)
    for (var i = 0; i < recipeIngredientArray.length; i++) {
       giveSuggestion(recipeIngredientArray[i],stockArray)
+      console.log("it works")
       // document.getElementById("suggestionBasedOnStock").innerHTML += giveSuggestion(recipeIngredientArray[i],
       //    stockArray) + "<br>"
    }
@@ -49,7 +54,8 @@ function giveSuggestion(recept, stockArray) {
             var percentage = Math.round( totaal/recept.length * 100 );
             
              if (percentage > 40){
-               document.getElementById("suggestion").innerHTML += "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>";
+               document.getElementById("suggestion").innerHTML += "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
+               '"> <button class="btn btn - info">Go to Recipe</button></div></div>';
                console.log(percentage)
                console.log(receptenArray[x].name)
              }
