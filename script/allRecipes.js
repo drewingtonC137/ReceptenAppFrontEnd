@@ -1,4 +1,5 @@
 let endpoint = "/findAllRecipes"
+const logo = "/NoFoodToWaste.png"
 window.onload = function () {
     logInStatus(id);
 }
@@ -21,7 +22,7 @@ fetch(url + endpoint)
                 document.getElementById("plaatje" + [x]).src = img.src;
             } else {
                 var img = new Image();
-                img.src = logo;
+                img.src = "../NoFoodToWaste.png";
                 document.getElementById("plaatje" + [x]).src = img.src;
             }
         }
