@@ -1,4 +1,4 @@
-addQuantityTypesToSelect();
+
 
 function addQuantityTypesToSelect() {
     fetch(url + "/returnQuantityTypes")
@@ -39,7 +39,7 @@ submitStock.addEventListener("click", (e) => {
     const expirationdate = document.getElementById("expirationDate").value;
     const quantityType = document.getElementById("quantityTypeSelect").value;
     let availableToOthers
-    alert(document.getElementById("availableToOthers").checked);
+    // alert(document.getElementById("availableToOthers").checked);
     if (document.getElementById("availableToOthers").checked) {
         availableToOthers = "true";
     } else {
@@ -47,7 +47,7 @@ submitStock.addEventListener("click", (e) => {
     }
     //    const availableToOthers = document.getElementById("availableToOthers").value;
 
-    console.log(document.getElementById("availableToOthers").value);
+    // console.log(document.getElementById("availableToOthers").value);
 
     StockObj.amount = quantity;
     StockObj.amountType = quantityType;
@@ -63,7 +63,7 @@ submitStock.addEventListener("click", (e) => {
     })
         .then(res => res.text())
         .then(d => {
-            alert("Stock gemaakt")
+            alert("voorraad aangemaakt.")
             // window.location.assign("inventory.html")
         })
 })

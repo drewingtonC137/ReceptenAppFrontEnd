@@ -1,4 +1,4 @@
-addKitchenApplianceToSelect()
+
 
 var tempImage = "";
 
