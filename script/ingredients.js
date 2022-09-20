@@ -146,3 +146,9 @@ submitIngredient.addEventListener("click", (e) => {
       })
 })
 
+const submitRecipe = document.getElementById("submit-recipe");
+
+submitRecipe.addEventListener("click", (e) => {
+   recipeId
+   window.location.assign("showRecipe.html?id=" + receptId)
+})
