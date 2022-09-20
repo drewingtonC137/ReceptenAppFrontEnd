@@ -24,7 +24,8 @@ loginButton.addEventListener("click", (e) => {
         return number;
     })
     .then(id => {
-        if(id==null || id==-1 || !Number.isInteger(id)){
+        
+        if(id==null || id==-1 || !isPositiveInteger(id)){
             alert("Username or password invalid!");
             location.reload();
         } else{
@@ -32,3 +33,17 @@ loginButton.addEventListener("click", (e) => {
         }
     })
 })
+
+function isPositiveInteger(str) {
+    if (typeof str !== 'string') {
+      return false;
+    }
+  
+    const num = Number(str);
+  
+    if (Number.isInteger(num) && num > 0) {
+      return true;
+    }
+  
+    return false;
+  }
