@@ -24,7 +24,7 @@ loginButton.addEventListener("click", (e) => {
         return number;
     })
     .then(id => {
-        if(id==null || id==-1){
+        if(id==null || id==-1 || !Number.isInteger(id)){
             alert("Username or password invalid!");
             location.reload();
         } else{
