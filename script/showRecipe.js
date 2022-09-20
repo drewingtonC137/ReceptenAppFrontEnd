@@ -14,10 +14,7 @@ window.onload = function () {
                         document.getElementById("go5").innerHTML += b.cookingTime + " Minutes" + "<hr>"
                         document.getElementById("go6").innerHTML += b.totalPortions + " People" + "<hr>"
                         var img = new Image();
-                        console.log(img)
-                        console.log(b.image);
                         img.src = b.image;
-                        console.log(img.src)
                         document.getElementById("plaatje").src = img.src;
 
                 })

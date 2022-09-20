@@ -13,6 +13,10 @@ window.onload = function () {
       .then((response) => response.json())
       .then((recipeObj) => {
 
+         var img = new Image();
+         img.src = recipeObj.image;
+         document.getElementById("plaatje").src = img.src;
+
          instructions = recipeObj.instructions.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
          document.getElementById("recipeName").innerHTML = recipeObj.name
