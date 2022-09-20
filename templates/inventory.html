@@ -10,6 +10,14 @@
     <!-- local sources -->
     <script src="../script/globalVariables.js"></script>
     <script src="../script/profile.js"></script>
+    <script>
+        window.onload = function () {
+            checkUrl();
+            logInStatus(id);
+            checkloginbeforedataretrieval();
+        }
+
+    </script>
     <link rel="stylesheet" href="../style/style.css">
 </head>
 
@@ -25,7 +33,7 @@
         </div>
         <nav class="navbar navbar-default">
             <div class="topnav">
-                <a id="homepage" href="../index.html">Homepage</a>
+                <!-- <a id="homepage" href="../index.html">Homepage</a> -->
                 <a id="inventory-page" href="inventory.html">Inventory</a>
                 <a id="recipes-page" href="recipes.html">Add a recipe</a>
                 <a id="recipes-page" href="AllRecipes.html">All Recipes</a>
