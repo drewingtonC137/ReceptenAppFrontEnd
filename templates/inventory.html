@@ -10,6 +10,14 @@
     <!-- local sources -->
     <script src="../script/globalVariables.js"></script>
     <script src="../script/profile.js"></script>
+    <script>
+        window.onload = function () {
+            checkUrl();
+            logInStatus(id);
+            checkloginbeforedataretrieval();
+        }
+
+    </script>
     <link rel="stylesheet" href="../style/style.css">
 </head>
 
@@ -25,7 +33,7 @@
         </div>
         <nav class="navbar navbar-default">
             <div class="topnav">
-                <a id="homepage" href="../index.html">Homepage</a>
+                <!-- <a id="homepage" href="../index.html">Homepage</a> -->
                 <a id="inventory-page" href="inventory.html">Inventory</a>
                 <a id="recipes-page" href="recipes.html">Add a recipe</a>
                 <a id="recipes-page" href="AllRecipes.html">All Recipes</a>
@@ -35,9 +43,13 @@
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-6" id="serverResponse"></div>
-        <div class="col-sm-5" id="suggestionBasedOnStock"> 
-
+        <div class="col-sm-5" id="suggestionBasedOnStock">
+            <button onclick="hoi()">Klik hier</button>
+            <button onclick="checken()">Klik daar</button>
+            <button onclick="giveSuggestion()">Klik vervolgens </button>
+            <div id="suggestion"></div>
         </div>
+
     </div>
     <div class="row">
         <div class="col-sm-1"></div>
@@ -48,4 +60,4 @@
     </div>
 </body>
 <script src="../script/retrieveStock.js"></script>
-<!-- <script src="../script/suggestionBasedOnStock.js"></script> -->
+<script src="../script/suggestionBasedOnStock.js"></script>

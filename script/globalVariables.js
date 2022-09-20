@@ -1,4 +1,5 @@
 let url = "https://yc2208backendfinal.azurewebsites.net";
+
 checkUrl();
 
 function checkUrl() {
