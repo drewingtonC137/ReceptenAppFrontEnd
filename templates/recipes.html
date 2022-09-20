@@ -11,6 +11,13 @@
     <script src="../script/globalVariables.js"></script>
 
     <script src="../script/profile.js"></script>
+    <script>
+        window.onload = function () {
+            checkUrl();
+            logInStatus(id);
+            addKitchenApplianceToSelect();
+        }
+    </script>
     <link rel="stylesheet" href="../style/style.css">
 </head>
 
@@ -22,11 +29,10 @@
     </div>
     <div class="container-fluid">
         <div class="page-header">
-            <h1 id="title">Recepten App</h1>
+            <h1 id="title"><img id="headerimg" src="../NoFoodToWaste.png"></h1>
         </div>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default fixed-top">
             <div class="topnav">
-                <!-- <a id="homepage" href="../index.html">Homepage</a> -->
                 <a id="inventory-page" href="inventory.html">Inventory</a>
                 <a id="ingredients-page" href="ingredients.html">Ingredients</a>
                 <a id="recipes-page" href="recipes.html">Add a Recipe</a>
@@ -79,6 +85,7 @@
 
         </div>
     </div>
+    
 </body>
 
 <script src="../script/recipe.js"></script>
