@@ -10,6 +10,7 @@ function logInStatus(accountIdSession) {
         document.getElementById("inventory-page").style.display = 'none';
         // document.getElementById("ingredients-page").style.display = 'none';
         document.getElementById("recipes-page").style.display = 'none';
+        window.location.replace("login.html");
         return;
     } else{
         console.log("You are logged in!")
