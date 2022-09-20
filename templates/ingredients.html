@@ -12,6 +12,7 @@
     <script src="../script/globalVariables.js"></script>
     <script src="../script/profile.js"></script>
     <link rel="stylesheet" href="../style/style.css">
+
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         </div>
         <nav class="navbar navbar-default">
             <div class="topnav">
-                <a id="homepage" href="../index.html">Homepage</a>
+                <!-- <a id="homepage" href="../index.html">Homepage</a> -->
                 <a id="inventory-page" href="inventory.html">Inventory</a>
                 <a id="recipes-page" href="recipes.html">Add a recipe</a>
                 <a id="recipes-page" href="AllRecipes.html">All Recipes</a>
@@ -34,51 +35,58 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-2"><b>Receptnaam: </b> </div>
-                <div class="col-sm-3"><span id="recipeName"></span></div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6"><b>Receptnaam: </b> </div>
+                        <div class="col-sm-6"><span id="recipeName"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><b>Porties: </b></div>
+                        <div class="col-sm-6"><span id="portions"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><b>Bereidingstijd: </b></div>
+                        <div class="col-sm-6"><span id="cooking_time"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><b>Benodigdheden: </b></div>
+                        <div class="col-sm-6"><span id="kitchen_appliances"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><b>Bijzonderheden: </b></div>
+                        <div class="col-sm-6"><span id="vegetarian"></span></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <figure class="figure">
+                                <img id="plaatje" style="width: 200px; height: 200px; object-fit: cover;">
+                            </figure>
+                        </div>
+                    </div>
 
+                </div>
             </div>
             <div class="row">
-                <div class="col-sm-2"><b>Porties: </b></div>
-                <div class="col-sm-3"><span id="portions"></span></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2"><b>Bereidingstijd: </b></div>
-                <div class="col-sm-3"><span id="cooking_time"></span></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2"><b>Benodigdheden: </b></div>
-                <div class="col-sm-3"><span id="kitchen_appliances"></span></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2"><b>Bijzonderheden: </b></div>
-                <div class="col-sm-2"><span id="vegetarian"></span></div>
-            </div>
-
-            <div class="row">
-
                 <div class="col-sm-6"><br><b>Instructies: </b><br>
                     <span id="instructions"></span>
                 </div>
-
                 <div class="col-sm-6"><br><b>Ingredienten:</b> <br>
                     <span id="ingredients"></span>
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-3"><input type="text" id="hoeveelheid" placeholder="hoeveelheid"></div>
-            <div class="col-sm-3"><select class="form-control" id="quantityTypeSelect"></select></div>
-            <div class="col-sm-3"><input autocomplete="off" class="input" id="ingredientName" name="prof1" type="text"
-                    placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
-                <datalist id="ingredientArray"></datalist>
+            <br>
+            <div class="row">
+                <div class="col-sm-3"><input type="text" id="hoeveelheid" placeholder="hoeveelheid"></div>
+                <div class="col-sm-3"><select class="form-control" id="quantityTypeSelect"></select></div>
+                <div class="col-sm-3"><input autocomplete="off" class="input" id="ingredientName" name="prof1"
+                        type="text" placeholder="Zoek ingredient" list="ingredientArray" data-items="8" />
+                    <datalist id="ingredientArray"></datalist>
+                </div>
+                <div class="col-sm-3"><input type="submit" value="sla ingredient op" id="submit-ingredient"></div>
             </div>
-            <div class="col-sm-3"><input type="submit" value="sla ingredient op" id="submit-ingredient"></div>
         </div>
-
-    </div>
-    <br>
     </div>
     </div>
 </body>

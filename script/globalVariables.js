@@ -1,5 +1,7 @@
 let url = "https://yc2208backendfinal.azurewebsites.net";
-checkUrl();
+const logo =
+
+    checkUrl();
 
 function checkUrl() {
     let hostname = location.hostname;
