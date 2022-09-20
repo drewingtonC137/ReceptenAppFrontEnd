@@ -30,7 +30,6 @@ submitRecipe.addEventListener("click", (e) => {
    recipeObj.vegitarian = vegetarian;
    recipeObj.image = tempImage;
 
-   // recipeObj.vegitarian = vegetarian;
    accountId = localStorage.getItem("accountId");
    console.log(recipeName)
    console.log(JSON.stringify(recipeObj))
@@ -41,7 +40,6 @@ submitRecipe.addEventListener("click", (e) => {
          'Content-Type': 'application/json;charset=utf8'
       },
       body: JSON.stringify(recipeObj)
-
    })
       .then(res => res.json())
       .then((recipeId = res.recipeId) => {
