@@ -1,34 +1,43 @@
-/*
-   zoekt naar de ingeredienten
-*/
-
 let recipeId = 0
-
 window.onload = function () {
    logInStatus(id);
-   
-   const urlSearchParams = new URLSearchParams(window.location.search);
-   const params = Object.fromEntries(urlSearchParams.entries());
-   recipeId = params.id
-   document.getElementsByClassName("recipeAttribute")
-   fetch(url + "/getRecipe/" + recipeId)
-      .then((response) => response.json())
-      .then((recipeObj) => {
-
-         instructions = recipeObj.instructions.replace(/(?:\r\n|\r|\n)/g, '<br>');
-
-         document.getElementById("recipeName").innerHTML = recipeObj.name
-         document.getElementById("portions").innerHTML = recipeObj.totalPortions
-         document.getElementById("cooking_time").innerHTML = recipeObj.cookingTime
-         document.getElementById("kitchen_appliances").innerHTML = recipeObj.kitchenApplianceSelect
-         document.getElementById("vegetarian").innerHTML = recipeObj.vegetarian
-         document.getElementById("instructions").innerHTML = instructions
-      })
-
-   getIngredientsFromDatabase()
-   getIngredientsFromRecipe()
-   addQuantityTypesToSelect()
 }
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+recipeId = params.id
+document.getElementsByClassName("recipeAttribute")
+fetch(url + "/getRecipe/" + recipeId)
+   .then((response) => response.json())
+   .then((recipeObj) => {
+
+      if (recipeObj.image != null) {
+         var img = new Image();
+         img.src = recipeObj.image;
+         document.getElementById("plaatje").src = img.src;
+      }
+
+      instructions = recipeObj.instructions.replace(/(?:\r\n|\r|\n)/g, '<br>');
+      if (recipeObj.vegetarian == "true") {
+         vegetarian = "Vegetarisch"
+      } else {
+         vegetarian = "Niet vegetarisch"
+      }
+
+      let benodigdheden = cleanString(recipeObj.benodigdHeden.toLowerCase())
+
+      document.getElementById("recipeName").innerHTML = recipeObj.name
+      document.getElementById("portions").innerHTML = recipeObj.totalPortions + " personen"
+      document.getElementById("cooking_time").innerHTML = recipeObj.cookingTime + " minuten"
+      document.getElementById("kitchen_appliances").innerHTML = benodigdheden
+      document.getElementById("vegetarian").innerHTML = vegetarian
+      document.getElementById("instructions").innerHTML = instructions
+
+   })
+
+getIngredientsFromDatabase()
+getIngredientsFromRecipe()
+addQuantityTypesToSelect()
+
 
 function getIngredientsFromDatabase() {
    fetch(url + "/returnIngredients")
@@ -61,15 +70,6 @@ function getIngredientsFromRecipe() {
             let tr = document.createElement('tr');
             let td = document.createElement('td');
             td.appendChild(document.createTextNode(element.amount + " " + element.amountType.toLowerCase() + " " + ingredient.name));
-            // td.style.width = "40px"
-            // tr.appendChild(td);
-            // td = document.createElement('td');
-            // td.appendChild(document.createTextNode(element.amountType.toLowerCase()));
-            // td.style.width = "40px"
-            // tr.appendChild(td);
-            // td = document.createElement('td');
-            // td.appendChild(document.createTextNode(ingredient.name));
-            // td.style.width = "500px"
             tr.appendChild(td);
             tbdy.appendChild(tr);
 
@@ -108,8 +108,6 @@ function fillQuantityTypeSelect(data) {
    }
 }
 
-
-
 const submitIngredient = document.getElementById("submit-ingredient");
 
 submitIngredient.addEventListener("click", (e) => {
@@ -123,7 +121,6 @@ submitIngredient.addEventListener("click", (e) => {
    ingredientObj.name = name;
    recipeIngredientObj.amount = amount;
    recipeIngredientObj.amountType = amountType;
-   // recipeIngredientObj.recept_id = localStorage.getItem("recipeId");
 
    fetch(url + "/setIngredient/" + name, {
       method: 'POST',
@@ -147,38 +144,5 @@ submitIngredient.addEventListener("click", (e) => {
                getIngredientsFromRecipe()
             })
       })
-
-
-
-
 })
 
-$(document).ready(function () {
-   var next = 1;
-   $(".add-more").click(function (e) {
-      e.preventDefault();
-      var addto = "#field" + next;
-      var addRemove = "#field" + (next);
-      next = next + 1;
-      var newIn = '<input type="text" id="hoeveelheid' + next + '" placeholder="hoeveelheid"><input type="text" id="eenheid' + next + '" placeholder="eenheid"><input autocomplete="off" class="input form-control" id="field' + next + '" name="prof1" type="text" placeholder="Zoek ingredient" onkeyup="filterIngredient()" data-items="8" width="20">';
-      var newInput = $(newIn);
-      var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
-      var removeButton = $(removeBtn);
-      $(addto).after(newInput);
-      $(addRemove).after(removeButton);
-      $("#field" + next).attr('data-source', $(addto).attr('data-source'));
-      $("#count").val(next);
-
-      $('.remove-me').click(function (e) {
-         e.preventDefault();
-         var fieldNum = this.id.charAt(this.id.length - 1);
-         var fieldID = "#field" + fieldNum;
-         var hoeveelheidId = "#hoeveelheid" + fieldNum;
-         var eenheidId = "#eenheid" + fieldNum;
-         $(this).remove();
-         $(fieldID).remove();
-         $(hoeveelheidId).remove();
-         $(eenheidId).remove();
-      });
-   });
-});

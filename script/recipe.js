@@ -13,23 +13,21 @@ submitRecipe.addEventListener("click", (e) => {
    const cookingTime = document.getElementById("cookingTime").value;
    const kitchenAppliance = document.getElementById("kitchenApplianceSelect").value;
    const instructions = document.getElementById("instructions").value;
+   let vegetarian;
 
-
-
-   // let vegetarian;
-
-   // if (document.getElementById("vegetarian").value == "on") {
-   //    vegetarian = "true";
-   // }
-   // else {
-   //    vegetarian = "false";
-   // }
+   if (document.getElementById("vegetarian").value == "on") {
+      vegetarian = "true";
+   }
+   else {
+      vegetarian = "false";
+   }
 
    recipeObj.name = recipeName;
    recipeObj.totalPortions = portions;
    recipeObj.cookingTime = cookingTime;
-   recipeObj.kitchen_appliance = kitchenAppliance;
+   recipeObj.benodigdHeden = kitchenAppliance;
    recipeObj.instructions = instructions;
+   recipeObj.vegitarian = vegetarian;
    recipeObj.image = tempImage;
 
    // recipeObj.vegitarian = vegetarian;
