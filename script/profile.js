@@ -1,6 +1,6 @@
-window.onload = (event) => {
-    logInStatus(id);
-}
+// window.onload = (event) => {
+//     logInStatus(id);
+// }
 
 
 // Check if you are logged into an account.
@@ -8,7 +8,7 @@ function logInStatus(accountIdSession) {
     if(accountIdSession==null || accountIdSession==-1){
         console.log("You are not logged in!")
         document.getElementById("inventory-page").style.display = 'none';
-        document.getElementById("ingredients-page").style.display = 'none';
+        // document.getElementById("ingredients-page").style.display = 'none';
         document.getElementById("recipes-page").style.display = 'none';
         return;
     } else{

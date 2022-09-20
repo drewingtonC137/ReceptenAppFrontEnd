@@ -1,4 +1,4 @@
-checkloginbeforedataretrieval();
+
 
 
 // Check if you are logged into an account.

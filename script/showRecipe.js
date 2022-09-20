@@ -1,11 +1,10 @@
-let url = "http://localhost:8082/"
-let endpoint = "findAllRecipes"
+// let url = "http://localhost:8082/"
+// let endpoint = "findAllRecipes"
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 window.onload = function () {
-
-
-        fetch("http://localhost:8082/getRecipe/" + params.id)
+        logInStatus(id)
+        fetch(url + "/getRecipe/" + params.id)
                 .then(a => a.json())
                 .then(b => {
                         console.log(b);
