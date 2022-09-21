@@ -12,7 +12,7 @@ fetch(url + endPointAllRecipes)
             console.log(receptId)
 
             document.getElementById("go10").innerHTML +=
-                '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 100px; height: 100px; object-fit: cover;"></div><div class="col-sm-4">' + b[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptId +
+                '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 100px; height: 100px; object-fit: scale-down;"></div><div class="col-sm-4">' + b[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptId +
                 '"> <button class="btn btn - info">Ga naar recept</button></div></div>'
 
             var img = new Image();

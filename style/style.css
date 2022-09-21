@@ -4,8 +4,8 @@ body {
 }
 
 body {
-    background-color: #ffffff;
-
+    /* background-color: #ffffff; */
+    background-image: url("../output-onlinepngtools.png");
     font: 14px sans-serif;
     margin: auto;
     position: relative;
@@ -13,6 +13,18 @@ body {
     justify-content: center;
 
     align-items: center;
+}
+
+table {
+    background-color: #ffffff;
+}
+
+.container-fluid {
+    background-color: #ffffff;
+}
+
+#suggestionBasedOnStock{
+    background-color: #ffffff;
 }
 
 p {
