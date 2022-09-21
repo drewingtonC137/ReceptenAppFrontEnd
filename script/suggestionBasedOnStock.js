@@ -54,22 +54,22 @@ function giveSuggestion(recept, stockArray) {
             var percentage = Math.round( totaal/recept.length * 100 );
             
              if (percentage > 80 && percentage <= 100){
-               document.getElementById("suggestion1").innerHTML += "<br>" + "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
+               document.getElementById("suggestion1").innerHTML += "<br>" + "Jouw voorraad bevat " + percentage + "% van de ingredienten voor: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
                '"> <button class="btn btn - info">Go to Recipe</button></div></div>';
             
                console.log(percentage)
                console.log(receptenArray[x].name)
              }else if(percentage > 60 && percentage <= 80){
-               document.getElementById("suggestion2").innerHTML += "<br>" + "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
+               document.getElementById("suggestion2").innerHTML += "<br>" + "Jouw voorraad bevat " + percentage + "% van de ingredienten voor: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
                '"> <button class="btn btn - info">Go to Recipe</button></div></div>';
              }else if(percentage > 50 && percentage <= 60){
-               document.getElementById("suggestion3").innerHTML += "<br>" + "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
+               document.getElementById("suggestion3").innerHTML += "<br>" + "Jouw voorraad bevat " + percentage + "% van de ingredienten voor: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
                '"> <button class="btn btn - info">Go to Recipe</button></div></div>';
              }else if(percentage > 40 && percentage <= 50){
-               document.getElementById("suggestion4").innerHTML += "<br>" + "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
+               document.getElementById("suggestion4").innerHTML += "<br>" + "Jouw voorraad bevat " + percentage + "% van de ingredienten voor: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
                '"> <button class="btn btn - info">Go to Recipe</button></div></div>';
              }else if(percentage > 30 && percentage <= 40){
-               document.getElementById("suggestion5").innerHTML += "<br>" + "your stock contains " + percentage + "% of the ingredients for: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
+               document.getElementById("suggestion5").innerHTML += "<br>" + "Jouw voorraad bevat " + percentage + "% van de ingredienten voor: " + receptenArray[x].name + "<br>" + '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + [x] + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + receptenArray[x].name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + receptenArray[x].id +
                '"> <button class="btn btn - info">Go to Recipe</button></div></div>';
              }
          }
