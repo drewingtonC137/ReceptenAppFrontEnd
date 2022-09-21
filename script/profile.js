@@ -29,7 +29,7 @@ function logInStatus(accountIdSession) {
 
 // Delete account if the logged in user wants to delete it's account.
 function deleteAccount() {
-    fetch(url + '/deleteAccount/' + accountId , {
+    fetch(url + '/deleteAccount/' + id , {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

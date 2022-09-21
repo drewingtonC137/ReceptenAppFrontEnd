@@ -41,11 +41,11 @@ function stockListToTable(infovanserver) {
     console.log("interpretting data")
     let startString = '<table class="table table-striped">';
     startString += `<tr><td>#</td>
-    <td>ingredient name</td>
-    <td>amount</td>
-    <td>amount type</td>
-    <td>expiration date</td>
-    <td>available to others</td>
+    <td>Ingredient</td>
+    <td>Hoeveelheid</td>
+    <td>Type hoeveelheid</td>
+    <td>Houdbaarheidsdatum</td>
+    <td>Beschikbaar voor anderen</td>
     <td></td>
     <td></td>
     </tr>`;
@@ -56,8 +56,8 @@ function stockListToTable(infovanserver) {
         <td>${cleanString(infovanserver[x].amountType)}</td>
         <td>${infovanserver[x].expirationDate}</td>
         <td>${infovanserver[x].availableToOthers}</td>
-        <td><a href="changeStock.html?id=${infovanserver[x].id}"><button type="button" class="btn btn-primary btn-sm">Edit item</button></a></td>
-        <td><button type="button" class="btn btn-danger btn-sm" onclick="deleteStockItemById(\'${infovanserver[x].id}\')">Delete item</button></td>
+        <td><a href="changeStock.html?id=${infovanserver[x].id}"><button type="button" class="btn btn-primary btn-sm">Wijzig item</button></a></td>
+        <td><button type="button" class="btn btn-danger btn-sm" onclick="deleteStockItemById(\'${infovanserver[x].id}\')">Verwijder item</button></td>
         </tr>
         `;
     }
