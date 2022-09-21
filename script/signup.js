@@ -34,7 +34,7 @@ signupButton.addEventListener("click", (e) => {
     })
     .then(number => {
         if(number == -1){
-            alert("Account is already taken! Try again...")
+            alert("Account is al in gebruik! Probeer opnieuw..")
             location.reload()
         } else{
             window.location.replace("userInfo.html");
