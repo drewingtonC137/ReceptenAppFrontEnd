@@ -32,7 +32,7 @@ function checken() {
       percentage =  Math.round(giveSuggestion(recipeIngredientArray[x],stockArray));
      // document.getElementById("debug").innerHTML += recipeIngredientArray[x][0].recept.name + " " + "-" + recipeIngredientArray[x].length + " - "+ percentage + "<hr>"  ;
       let input = "<br>" + "Jouw voorraad bevat " + percentage + "% van de ingredienten voor: " + 
-      '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + x + '" style="width: 200px; height: 200px; object-fit: cover;"></div><div class="col-sm-4">' + 
+      '<hr><div class="row"><div class="col-sm-4"><img id="plaatje' + x + '" style="width: 200px; height: 200px; object-fit: scale-down;"></div><div class="col-sm-4">' + 
       recipeIngredientArray[x][0].recept.name + '</div><div class="col-sm-4"><a href="showRecipe.html?id=' + recipeIngredientArray[x][0].recept.id +
       '"> <button class="btn btn - info">Bekijk recept</button></div></div>';
       if (percentage > 80 && percentage <= 100){
